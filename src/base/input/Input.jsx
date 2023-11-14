@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import "./input.css";
 
 const Input = ({
@@ -7,12 +7,24 @@ const Input = ({
   value,
   onChange,
   name,
-  required
+  required,
+  feedbackMessage,
 }) => {
   return (
-    
-        <input className='input'  type={type} placeholder={placeholder} onChange={onChange} required={required} name={name}/>
-  )
-}
+    <>
+      <input
+        className="input"
+        value={value}
+        type={type}
+        placeholder={placeholder}
+        onChange={onChange}
+        required={required}
+        name={name}
+      />
 
-export default Input
+      {feedbackMessage && <span>{feedbackMessage}</span>}
+    </>
+  );
+};
+
+export default Input;

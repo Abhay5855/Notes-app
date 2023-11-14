@@ -8,11 +8,12 @@
   outline: transparent;
   padding: 0 3px 0 20px;
   font-size: 1.5em;
-  text-transform: capitalize;
+
 }
 
 .input::placeholder {
   color: #fff;
+  text-transform: capitalize;
 }
 label {
   cursor: default;
