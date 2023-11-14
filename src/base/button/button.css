@@ -1,6 +1,4 @@
 
-
-
 .btn {
 
       width: 100%;
@@ -15,6 +13,13 @@
       margin: 24px 0 12px 0;
       color: #fff;
       
+}
+
+
+.btn:disabled,
+.btn[disabled]{
+  cursor: not-allowed;
+  opacity: 0.4;
 }
 
 @media only screen and (max-width: 599px) {
