@@ -1,139 +1,119 @@
 .signup__container {
-  width: 100vw;
+  width: 100%;
   height: 100vh;
-  background-image: url("https://images.unsplash.com/photo-1533035353720-f1c6a75cd8ab?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGxhaW4lMjBiYWNrZ3JvdW5kfGVufDB8fDB8fHww");
+  background-image: url("../../../assets/images/notes.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  z-index: -1;
 }
 
 .signup__formcontainer {
-  margin: 12em auto;
+  margin: 6em auto;
 }
 
-
-.signup__formcontainer > form > h2 {
-
-      color: #fff;
-      font-size: 2.3em;
-      font-weight: 500;
-
+.signup__heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
+
+.signup__heading > span {
+  color: #333333;
+  font-size: 1em;
+  font-weight: 400;
+  margin-bottom: 40px;
+}
+
 .signup__formcontainer > form {
-
-  background-color: rgba(0, 0, 0, 0.75);
-  border-radius: 4px;
+  background-color: #fff;
+  border-radius: 2px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  gap: 2em;
-  min-height: 600px;
-  padding: 20px 0 30px;
-  width: 40%;
+  gap: 1.6em;
+  padding: 3em 4.5em;
+  width: 50%;
   margin: 0 auto;
-  padding: 60px 68px 40px;
-  z-index: 2;
-  text-align: left;
-  
+  box-shadow: 9px 9px 9px 9px rgba(0, 0, 0, 0.1);
 }
 
-
 .signup__link {
+  color: #fbbc04;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 400;
+}
 
-     color: #fff;
-     text-decoration: none;
-     cursor: pointer;
-     margin-left: 0.5em;
-     
+.signup__already {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 22px;
 }
 
 .signup__already > span {
-
-     color: #eee;
-
+  color: #737373;
+  font-size: 1.2em;
+  font-weight: 400;
 }
 
-.signup__link:hover {
-    
-    text-decoration: underline;
-}
+@media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
+  .signup__formcontainer > form {
+    gap: 1em;
+    width: 90%;
+  }
 
-@media only screen and (max-width: 599px) {
-    
-    .signup__formcontainer > form {
-        gap: 1em;
-        width: 90%; 
-        min-height: 550px;
-      }
+  .signup__formcontainer {
+    margin: 5em auto;
+  }
 
-    .signup__formcontainer {
-        margin: 5em auto;
-      }
-
-      .signup__formcontainer > form > h2 {
-
-        font-size: 1.5em;
-  
+  .signup__formcontainer > form {
+    padding: 3em 2em;
   }
 }
-  
-  /* Styles for tablets */
-  @media only screen and (min-width: 600px) and (max-width: 1023px) {
-    .signup__formcontainer > form {
-        gap: 1em;
-        width: 70%; 
-        min-height: 550px;
-      }
 
-    .signup__formcontainer {
-        margin: 6em auto;
-      }
-
-      .signup__formcontainer > form > h2 {
-
-        font-size: 1.5em;
-  
+/* Styles for tablets */
+@media only screen and (min-width: 600px) and (max-width: 1023px) {
+  .signup__formcontainer > form {
+    gap: 1em;
+    width: 60%;
   }
-    
+
+  .signup__formcontainer {
+    margin: 6em auto;
   }
-  
-  /* Styles for normal desktop screens */
-  @media only screen and (min-width: 1024px) and (max-width: 1439px) {
-    .signup__formcontainer > form {
-        gap: 1.3em;
-        width: 50%;
-        min-height: 550px;
-      }
 
-    .signup__formcontainer {
-        margin: 6em auto;
-      }
-
-      .signup__formcontainer > form > h2 {
-
-        font-size: 1.5em;
-  
+  .signup__formcontainer > form {
+    padding: 1.4em 2em;
   }
-    
-  }
-  
-  /* Styles for large desktop screens (like Macs) */
-  @media only screen and (min-width: 1440px) and (max-width: 1919px) {
-    .signup__formcontainer > form {
-        gap: 1.3em;
-        width: 40%;
-        min-height: 550px;
-      }
+}
 
-    .signup__formcontainer {
-        margin: 6em auto;
-      }
-
-      .signup__formcontainer > form > h2 {
-
-        font-size: 1.5em;
-  
+/* Styles for normal desktop screens */
+@media only screen and (min-width: 1024px) and (max-width: 1439px) {
+  .signup__formcontainer > form {
+    gap: 1.3em;
+    width: 50%;
   }
-    
+
+  .signup__formcontainer {
+    margin: 5em auto;
   }
-  
+}
+
+/* Styles for large desktop screens (like Macs) */
+@media only screen and (min-width: 1440px) and (max-width: 1919px) {
+  .signup__formcontainer > form {
+    gap: 1.3em;
+    width: 40%;
+    min-height: 550px;
+  }
+
+  .signup__formcontainer {
+    margin: 4em auto;
+  }
+}

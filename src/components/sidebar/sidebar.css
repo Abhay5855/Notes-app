@@ -1,0 +1,82 @@
+.sidebar__container {
+  position: fixed;
+  left: 0;
+  width: 280px;
+  height: 100vh;
+  background-color: rgba(32, 33, 36, 1);
+  padding: 2em 2em 0 1em;
+}
+
+.sidebar__container > ul {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+.sidebar__container > ul > li {
+  list-style: none;
+}
+
+.sidebar__container > ul > li > a > div > span {
+  color: #fff;
+  font-size: 1.2em;
+}
+
+.sidebar__container > ul > li > a > div {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+.sidebar__container > ul > li > a {
+  text-decoration: none;
+}
+
+.sidebar__labels {
+  color: #fff;
+  font-size: 1.2em;
+}
+
+/* Mobiles */
+@media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
+  .sidebar__container {
+    width: 80px;
+
+  }
+
+  .sidebar__labels {
+    display: none;
+  }
+}
+
+@media (min-width: 1441px) {
+  .sidebar__container {
+    padding: 4em 0em 0 3em;
+  }
+
+  .sidebar__labels {
+    color: #fff;
+    font-size: 1.5em;
+    font-weight: 600;
+  }
+
+  .sidebar__container > ul > li > a > div > span {
+    
+     font-size: 1.5em;
+  }
+  
+
+}
+
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .sidebar__container {
+    width: 300px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* CSS */
+  .sidebar__container {
+    width: 200px;
+  }
+}

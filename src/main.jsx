@@ -1,23 +1,28 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import SignupContainer from './components/authentication/signup/SignupContainer.jsx';
-import App from './App.jsx'
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import "./index.css";
+import ErrorPage from "./routes/error-page.jsx";
+import App from "./App";
+import LoginContainer from "./components/authentication/login/LoginContainer";
+import SignupContainer from "./components/authentication/signup/SignupContainer";
 
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
-import './index.css'
-import ErrorPage from './routes/error-page.jsx';
-
-
-// routing 
-
+// routing
 const router = createBrowserRouter([
   {
     path: "/",
+    element: <LoginContainer />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/register",
     element: <SignupContainer />,
-    errorElement : <ErrorPage />
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/home",
+    element: <App />,
+    errorElement: <ErrorPage />,
   },
 ]);
 

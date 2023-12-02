@@ -22,7 +22,7 @@ const Input = ({
         name={name}
       />
 
-      {feedbackMessage && <span>{feedbackMessage}</span>}
+      {feedbackMessage && <span className="error__msg">{feedbackMessage}</span>}
     </>
   );
 };

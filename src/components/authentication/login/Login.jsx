@@ -2,39 +2,64 @@ import React from 'react';
 import Input from "../../../base/input/Input";
 import Button from "../../../base/button/Button";
 import { NavLink } from "react-router-dom";
+import "./login.css";
+import logo from "../../../assets/images/icon.png";
 
-const Login = () => {
+const Login = ({
+  onChange,
+  onSubmit,
+  validated,
+  isDisabled,
+  touched,
+  formData,
+  isInvalidMessage,
+}) => {
   return (
-    <div className="login__container">
-    <div className="login__heading">
-      <h1>Elvator Game</h1>
-    </div>
-    <div className="login__formcontainer">
-      <form autoComplete="off">
-        <h2>Sign Up</h2>
-        <Input
-          type={"email" || "text"}
-          placeholder="email / username"
-          required="true"
-          name="email"
-        />
-        <Input
-          type="password"
-          placeholder="password"
-          required="true"
-          name="password"
-        />
+    <>
+      <div className="login__container">
+        <div className="login__form">
+          <div className="login__heading">
+            <img src={logo} />
+            <h1>WhizNotes</h1>
+            <span>Remember everything important</span>
+          </div>
 
-        <Button type="submit" variant="submit" label="Login" />
+          <form autoComplete="off" onSubmit={onSubmit}>
+            <Input
+              type="email"
+              placeholder="Email"
+              value={formData.email}
+              required={true}
+              name="email"
+              onChange={onChange}
+              feedbackMessage={
+                touched.email || validated ? isInvalidMessage("email") : ""
+              }
+            />
+            <Input
+              type="password"
+              placeholder="Password"
+              value={formData.password}
+              required={true}
+              name="password"
+              onChange={onChange}
+              feedbackMessage={
+                touched.password || validated
+                  ? isInvalidMessage("password")
+                  : ""
+              }
+            />
+            <Button type="submit" label="Login" isDisabled={isDisabled} />
+          </form>
 
-        <div className="login__already">
-          <span>Don't have a account create new?<NavLink className="login__link">Sign Up</NavLink></span>
+          <div className="login__ending">
+            <p>Don't have an account?</p>
+            <NavLink to="/register">create account</NavLink>
+          </div>
         </div>
-      </form>
-    </div>
-  </div>
-    
-  )
-}
+      </div>
+    </>
+  );
+};
 
 export default Login
