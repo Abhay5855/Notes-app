@@ -1,6 +1,6 @@
-import './App.css'
-import Editor from "./components/editor/Editor";
+import "./App.css";
 import NavbarContainer from "./components/navbar/NavbarContainer";
+import NotesContainer from "./components/notes/NotesContainer";
 import SidebarContainer from "./components/sidebar/SidebarContainer";
 
 function App() {
@@ -13,11 +13,11 @@ function App() {
           <SidebarContainer />
         </div>
         <div>
-          <Editor />
+          <NotesContainer />
         </div>
       </div>
     </div>
   );
 }
 
-export default App
+export default App;
