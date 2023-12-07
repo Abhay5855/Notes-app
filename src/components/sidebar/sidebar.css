@@ -1,7 +1,4 @@
 .sidebar__container {
-  position: fixed;
-  left: 0;
-  width: 280px;
   height: 100vh;
   background-color: rgba(32, 33, 36, 1);
   padding: 2em 2em 0 1em;
@@ -39,11 +36,6 @@
 
 /* Mobiles */
 @media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
-  .sidebar__container {
-    width: 50px;
-
-  }
-
   .sidebar__labels {
     display: none;
   }
@@ -61,22 +53,12 @@
   }
 
   .sidebar__container > ul > li > a > div > span {
-    
-     font-size: 1.5em;
+    font-size: 1.5em;
   }
-  
-
 }
 
 @media (min-width: 1025px) and (max-width: 1440px) {
-  .sidebar__container {
-    width: 300px;
-  }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
-  /* CSS */
-  .sidebar__container {
-    width: 175px;
-  }
 }

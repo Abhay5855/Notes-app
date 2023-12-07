@@ -1,0 +1,28 @@
+.display__notes {
+  
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+
+}
+
+.display__notes__content {
+  border-radius: 8px;
+  width: 240px;
+  background-color: #202124;
+  min-height: 60px;
+  padding: 0.8em 1.2em 0.8em 1.2em;
+  margin: 10px;
+  border: 1px solid #5f6368;
+  cursor: pointer;
+  color: #e8eaed;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
+  
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+
+   
+}
