@@ -6,6 +6,8 @@ import ErrorPage from "./routes/error-page.jsx";
 import App from "./App";
 import LoginContainer from "./components/authentication/login/LoginContainer";
 import SignupContainer from "./components/authentication/signup/SignupContainer";
+import NotesContainer from "./components/notes/display_notes/NotesContainer";
+import AppLoadingContainer from "./AppLoadingContainer";
 
 // routing
 const router = createBrowserRouter([
@@ -20,9 +22,26 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: "/home",
-    element: <App />,
+    element: <AppLoadingContainer />,
     errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "/home",
+        element: <NotesContainer />,
+      },
+      {
+        path: "/thrash",
+        element: <h1>Thrash</h1>,
+      },
+      {
+        path: "/archive",
+        element: <h1>Archieve</h1>,
+      },
+      {
+        path: "/tags",
+        element: <h1>Tags</h1>,
+      },
+    ],
   },
 ]);
 

@@ -7,7 +7,6 @@
   margin-top: 2em;
   cursor: pointer;
   gap: 0.3em;
-  
 }
 
 .addnotes__container > span {
@@ -16,26 +15,22 @@
   cursor: pointer;
 }
 
-
 @media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
-
   .addnotes__container > span {
-
-       font-size: 0.8em;
+    font-size: 0.8em;
   }
-  
+
   .addnotes__container > img {
-
-        width: 50px;
+    width: 50px;
   }
-
 }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1040px) {
-
   .addnotes__container > span {
-
     font-size: 0.9em;
-}
+  }
 
+  .addnotes__container > img {
+    width: 60px;
+  }
 }

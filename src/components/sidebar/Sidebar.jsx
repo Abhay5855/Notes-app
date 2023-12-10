@@ -8,7 +8,7 @@ const Sidebar = () => {
       <div className="sidebar__container">
         <ul>
           <li>
-            <NavLink to="/notes">
+            <NavLink to="/home">
               <div>
                 <span class="material-symbols-outlined">description</span>
                 <h3 className="sidebar__labels">Notes</h3>

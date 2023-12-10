@@ -657,6 +657,13 @@ brace-expansion@^1.1.7:
     balanced-match "^1.0.0"
     concat-map "0.0.1"
 
+bricks.js@^1.8.0:
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/bricks.js/-/bricks.js-1.8.0.tgz#8fdeb3c0226af251f4d5727a7df7f9ac0092b4b2"
+  integrity sha512-XJsIGxoixpMDo/KoLXR+uQizFVGWNAQy1lLoIwXKxm6/Zpd9QQLSUd0otybbK7wjqX23ZvCXFxnIw+uCXJHo0A==
+  dependencies:
+    knot.js "^1.1.5"
+
 call-bind@^1.0.0, call-bind@^1.0.2, call-bind@^1.0.4, call-bind@^1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/call-bind/-/call-bind-1.0.5.tgz#6fa2b7845ce0ea49bf4d8b9ef64727a2c2e2e513"
@@ -1543,6 +1550,11 @@ keyv@^4.5.3:
   integrity sha512-oxVHkHR/EJf2CNXnWxRLW6mg7JyCCUcG0DtEGmL2ctUo1PNTin1PUil+r/+4r5MpVgC/fn1kjsx7mjSujKqIpw==
   dependencies:
     json-buffer "3.0.1"
+
+knot.js@^1.1.5:
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/knot.js/-/knot.js-1.1.5.tgz#28e72522f703f50fe98812fde224dd72728fef5d"
+  integrity sha512-ptGtvTrgLNtQj9ilUR+tSyHWTCPp2xu/EHkeo3OvpczzNqBSwjQKz8G7vUhzlRbasXVULBWSejsj6QRQb1pakw==
 
 levn@^0.4.1:
   version "0.4.1"
