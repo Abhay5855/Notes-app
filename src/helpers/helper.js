@@ -5,7 +5,6 @@ export const isvalidEmail = (str) => {
 };
 
 // functionm to check the password
-
 export const isValidPassword = (str) => {
   const passwordRegex =  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\\\[\\\](){}?\\\\|,.<>;:!~*_@#$%^&+=\-`"\/]).{8,}$/;
   return passwordRegex.test(str);
