@@ -31,6 +31,7 @@ const LoginContainer = () => {
       const { email, firstName, lastName, _id } = res.user;
 
       const data = {
+        isLoggedIn: true,
         email,
         firstName,
         lastName,
@@ -38,6 +39,7 @@ const LoginContainer = () => {
         token,
       };
 
+      localStorage.setItem("access_token", JSON.stringify(token));
       dispatch(login(data));
       navigate("/home");
     } catch (err) {

@@ -5,7 +5,7 @@ import SidebarContainer from "./components/sidebar/SidebarContainer";
 import { useSelector } from "react-redux";
 function App() {
   console.log(import.meta.env.VITE_BASE_URL);
-  const isLoggedIn = useSelector((state) => state);
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
 
   console.log(isLoggedIn, "isLoggedIn");
   return (
