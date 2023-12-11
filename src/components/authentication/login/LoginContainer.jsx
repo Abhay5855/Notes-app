@@ -4,6 +4,8 @@ import { isEmpty } from "lodash";
 import { isvalidEmail } from "../../../helpers/helper";
 import { useNavigate } from "react-router-dom";
 import { Signin } from "../../../api/api";
+import { login } from "../../../redux/slice/authSlice";
+import { useDispatch } from "react-redux";
 
 const LoginContainer = () => {
   const [formData, setFormData] = useState({
@@ -15,6 +17,7 @@ const LoginContainer = () => {
   const [validated, setValidated] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,9 +27,10 @@ const LoginContainer = () => {
     try {
       const res = await Signin(formData);
 
+      dispatch(login({ res }));
       //save the token
       localStorage.setItem("access_token", JSON.stringify(res.token));
-      navigate("/home");
+      // navigate("/home");
     } catch (err) {
       console.log(err);
       setIsLoading(false);

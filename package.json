@@ -11,6 +11,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.0.1",
     "antd": "^5.11.5",
     "axios": "^1.6.2",
     "bricks.js": "^1.8.0",
@@ -18,7 +19,10 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-quill": "^2.0.0",
+    "react-redux": "^9.0.3",
     "react-router-dom": "^6.18.0",
+    "redux": "^5.0.0",
+    "redux-toolkit": "^1.1.2",
     "slate": "^0.101.1",
     "slate-react": "^0.101.1"
   },
