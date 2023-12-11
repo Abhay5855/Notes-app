@@ -46,10 +46,12 @@ export default async function makeAPIRequest(
   //error handling
 
   const response = await api(request);
-  if (!response && response.status === 200) {
+  if (!response && !response.status === 200) {
     const error = new Error("Unknow error occured");
 
     error.response = response;
     throw error;
+  } else {
+    return response;
   }
 }

@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Login from "./Login";
 import { isEmpty } from "lodash";
 import { isvalidEmail } from "../../../helpers/helper";
+import { useNavigate } from "react-router-dom";
+import { Signin } from "../../../api/api";
 
 const LoginContainer = () => {
   const [formData, setFormData] = useState({
@@ -12,20 +14,25 @@ const LoginContainer = () => {
   const [touched, setTouched] = useState({});
   const [validated, setValidated] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
     setValidated(true);
 
     try {
+      const res = await Signin(formData);
+
+      console.log(res, "response");
+      // navigate("/home");
+    } catch (err) {
+      console.log(err);
+      setIsLoading(false);
       setFormData({
         email: "",
         password: "",
       });
-    } catch (err) {
-      console.log(err);
-      setIsLoading(false);
     }
   };
 
