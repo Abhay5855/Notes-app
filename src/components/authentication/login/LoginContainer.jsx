@@ -24,8 +24,9 @@ const LoginContainer = () => {
     try {
       const res = await Signin(formData);
 
-      console.log(res, "response");
-      // navigate("/home");
+      //save the token
+      localStorage.setItem("access_token", JSON.stringify(res.token));
+      navigate("/home");
     } catch (err) {
       console.log(err);
       setIsLoading(false);

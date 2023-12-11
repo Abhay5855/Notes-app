@@ -52,6 +52,6 @@ export default async function makeAPIRequest(
     error.response = response;
     throw error;
   } else {
-    return response;
+    return response.data;
   }
 }
