@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import Signup from "./Signup";
-import { forEach, isEmpty } from "lodash";
+import { isEmpty } from "lodash";
 import { isValidPassword, isvalidEmail } from "../../../helpers/helper";
-import axios from "axios";
 import { Register } from "../../../api/api";
+import { useNavigate } from "react-router-dom";
 
 const SignupContainer = () => {
   const [formData, setFormData] = useState({
@@ -15,6 +15,7 @@ const SignupContainer = () => {
 
   const [touched, setTouched] = useState({});
   const [validated, setValidated] = useState(false);
+  const navigate = useNavigate();
 
   // handleChange
   const handleChange = (e) => {
@@ -30,14 +31,19 @@ const SignupContainer = () => {
     e.preventDefault();
     setValidated(true);
 
-    await Register(formData);
+    try {
+      await Register(formData);
+      navigate("/");
+    } catch (err) {
+      setFormData({
+        email: "",
+        password: "",
+        firstName: "",
+        lastName: "",
+      });
+    }
+
     // clear the input feilds
-    setFormData({
-      email: "",
-      password: "",
-      firstName: "",
-      lastName: "",
-    });
   };
 
   const isInvalidMessage = (name) => {
