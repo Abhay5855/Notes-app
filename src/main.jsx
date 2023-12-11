@@ -9,7 +9,9 @@ import NotesContainer from "./components/notes/display_notes/NotesContainer";
 import AppLoadingContainer from "./AppLoadingContainer";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
-// routing
+import ProtectedRoute from "./routes/ProtectedRoute";
+
+// routings
 const router = createBrowserRouter([
   {
     path: "/",
@@ -22,7 +24,11 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    element: <AppLoadingContainer />,
+    element: (
+      <ProtectedRoute>
+        <AppLoadingContainer />
+      </ProtectedRoute>
+    ),
     errorElement: <ErrorPage />,
     children: [
       {

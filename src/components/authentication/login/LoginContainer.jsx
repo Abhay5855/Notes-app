@@ -27,10 +27,19 @@ const LoginContainer = () => {
     try {
       const res = await Signin(formData);
 
-      dispatch(login({ res }));
-      //save the token
-      localStorage.setItem("access_token", JSON.stringify(res.token));
-      // navigate("/home");
+      const { token } = res;
+      const { email, firstName, lastName, _id } = res.user;
+
+      const data = {
+        email,
+        firstName,
+        lastName,
+        _id,
+        token,
+      };
+
+      dispatch(login(data));
+      navigate("/home");
     } catch (err) {
       console.log(err);
       setIsLoading(false);
