@@ -35,13 +35,26 @@ const Signup = ({
           />
           <Input
             type="string"
-            placeholder="username"
+            placeholder="First Name"
             required={true}
-            name="userName"
-            value={formData.userName}
+            name="firstName"
+            value={formData.firstName}
             onChange={handleChange}
             feedbackMessage={
-              touched.userName || validated ? isInvalidMessage("userName") : ""
+              touched.firstName || validated
+                ? isInvalidMessage("firstName")
+                : ""
+            }
+          />
+          <Input
+            type="string"
+            placeholder="Last Name"
+            required={true}
+            name="lastName"
+            value={formData.lastName}
+            onChange={handleChange}
+            feedbackMessage={
+              touched.lastName || validated ? isInvalidMessage("lastName") : ""
             }
           />
           <Input

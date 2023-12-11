@@ -2,15 +2,18 @@ import React, { useState } from "react";
 import Signup from "./Signup";
 import { forEach, isEmpty } from "lodash";
 import { isValidPassword, isvalidEmail } from "../../../helpers/helper";
+import axios from "axios";
+import { Register } from "../../../api/api";
 
 const SignupContainer = () => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
-    userName: "",
+    firstName: "",
+    lastName: "",
   });
- 
-  const [touched , setTouched] = useState({});
+
+  const [touched, setTouched] = useState({});
   const [validated, setValidated] = useState(false);
 
   // handleChange
@@ -19,27 +22,26 @@ const SignupContainer = () => {
     // Using the spread operator to ensure immutability
     setFormData((prevData) => ({ ...prevData, [name]: value }));
 
-
-    setTouched({...touched, [name] : true});
+    setTouched({ ...touched, [name]: true });
   };
 
   // submit
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setValidated(true);
 
+    await Register(formData);
     // clear the input feilds
     setFormData({
-      email : "",
-      password : "",
-      userName : "",
+      email: "",
+      password: "",
+      firstName: "",
+      lastName: "",
     });
-
   };
 
   const isInvalidMessage = (name) => {
-
-    if(validated) return;
+    if (validated) return;
 
     switch (name) {
       case "email":
@@ -56,12 +58,23 @@ const SignupContainer = () => {
           ? ""
           : "Your password must contain one uppercase letter, one lowercase letter and one number, and must be at least 8 characters long.";
 
-      case "userName":
-        return isEmpty(formData.userName) ? "username should not be empty" : "";
+      case "lastName":
+        return isEmpty(formData.lastName)
+          ? "last name should not be empty"
+          : "";
+
+      case "firstName":
+        return isEmpty(formData.firstName)
+          ? "first name should not be empty"
+          : "";
     }
   };
 
-  const isDisabled = isEmpty(formData.email) || isEmpty(formData.password) || isEmpty(formData.userName);
+  const isDisabled =
+    isEmpty(formData.email) ||
+    isEmpty(formData.password) ||
+    isEmpty(formData.firstName) ||
+    isEmpty(formData.lastName);
 
   return (
     <div>
