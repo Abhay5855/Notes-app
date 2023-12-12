@@ -33,3 +33,17 @@
     justify-content: center;
     gap: 0.2em;
 }
+
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
+
+      #error-page {
+
+           width: 400px;
+      }
+
+      .error__link > a {
+        font-size: 1em;
+        
+ }
+}
