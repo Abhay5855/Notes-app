@@ -1,0 +1,35 @@
+
+
+#error-page {
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+      margin: 0 auto;
+      border-radius: 4px;
+      width: 700px;
+      text-align: center;
+}
+
+.error__link {
+
+    margin-top: 1em;
+}
+
+.error__link > a {
+
+       text-decoration: none;
+       text-align: center;
+       color: #fbbc04;
+       font-size: 1.3em;
+       font-weight: 500;
+}
+
+.error__content {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2em;
+}

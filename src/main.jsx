@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
-import ErrorPage from "./routes/error-page.jsx";
+import ErrorPage from "./components/404/error-page.jsx";
 import LoginContainer from "./components/authentication/login/LoginContainer";
 import SignupContainer from "./components/authentication/signup/SignupContainer";
 import NotesContainer from "./components/notes/display_notes/NotesContainer";
