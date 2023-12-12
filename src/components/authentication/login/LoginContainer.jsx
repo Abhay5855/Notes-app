@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Login from "./Login";
 import { isEmpty } from "lodash";
 import { isvalidEmail } from "../../../helpers/helper";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Signin } from "../../../api/api";
 import { login } from "../../../redux/slice/authSlice";
 import { useDispatch } from "react-redux";
@@ -18,6 +18,7 @@ const LoginContainer = () => {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const { state } = useLocation();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -41,7 +42,7 @@ const LoginContainer = () => {
 
       localStorage.setItem("access_token", JSON.stringify(token));
       dispatch(login(data));
-      navigate("/home");
+      navigate(state?.path || "/home");
     } catch (err) {
       console.log(err);
       setIsLoading(false);
