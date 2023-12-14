@@ -32,7 +32,7 @@ export default async function makeAPIRequest(
     data,
   };
 
-  if (!endpoint.includes("register")) {
+  if (!endpoint.includes("register") && !endpoint.includes("login")) {
     request.headers = {
       Authorization: `Bearer ${token}`,
     };

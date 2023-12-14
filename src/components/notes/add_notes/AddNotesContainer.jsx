@@ -1,10 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import AddNotes from "./AddNotes";
+import { CreateNotes } from "../../../api/api";
+import { useSelector } from "react-redux";
 
 const AddNotesContainer = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+
+  const loggedInUser = useSelector((state) => state.auth.userData);
+
+  console.log(loggedInUser, "loggedIn user");
+
+  const [userDetails, setUserDetails] = useState({});
+
+  useEffect(() => {
+    setUserDetails(loggedInUser);
+  }, [loggedInUser]);
 
   //showmodal
   const showModal = () => {
@@ -20,19 +32,21 @@ const AddNotesContainer = () => {
     setTitle(e.target.value);
   };
 
-  console.log({ title, content });
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log({ title, content });
-
     try {
-      setTitle("");
-      setContent("");
+      const id = userDetails._id;
+      const data = {
+        title,
+        content,
+      };
+      await CreateNotes(data, id);
       setIsModalOpen(false);
     } catch (err) {
       console.log(err);
+      setTitle("");
+      setContent("");
       setIsModalOpen(false);
     }
   };

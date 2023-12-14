@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Notes from "./Notes";
 
 const NotesContainer = () => {
+  useEffect(() => {}, []);
   return (
     <>
       <Notes />
