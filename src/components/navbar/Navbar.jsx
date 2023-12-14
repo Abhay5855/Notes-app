@@ -2,8 +2,9 @@ import React from "react";
 import "./navbar.css";
 import Search from "../../base/search/search";
 import logo from "../../assets/images/icon.png";
+import { getInitials } from "../../helpers/helper";
 
-const Navbar = () => {
+const Navbar = ({ userDetails }) => {
   return (
     <>
       <nav>
@@ -28,7 +29,9 @@ const Navbar = () => {
             </div>
 
             <div className="nav__profile">
-              <span>AP</span>
+              <span>
+                {getInitials(userDetails?.firstName, userDetails?.lastName)}
+              </span>
             </div>
           </div>
         </div>
