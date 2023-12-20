@@ -1,6 +1,6 @@
 import React from "react";
 import "./navbar.css";
-import Search from "../../base/search/search";
+import Search from "../../base/search/Search";
 import logo from "../../assets/images/icon.png";
 import { getInitials } from "../../helpers/helper";
 

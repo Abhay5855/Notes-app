@@ -1,22 +1,11 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import AddNotesContainer from "../add_notes/AddNotesContainer";
 import { notesData } from "../../../../data";
 import "./notes.css";
 import Bricks from "bricks.js";
 import { getNotes } from "../../../api/api";
 import { set } from "lodash";
-const Notes = () => {
-  const [notes, setNotes] = useState([]);
-
-  const fetchNotes = async () => {
-    const res = await getNotes();
-
-    setNotes(res);
-  };
-
-  useEffect(() => {
-    fetchNotes();
-  }, []);
+const Notes = ({notes}) => {
 
   const mainContainerRef = useRef(null);
   const noteElRefs = useRef([]);
@@ -64,10 +53,10 @@ const Notes = () => {
 
         {/* Display Notes */}
         <div ref={mainContainerRef} className="display__notes">
-          {notes.map((item, idx) => (
+          {notes?.map((item, idx) => (
             <div
               ref={(el) => (noteElRefs.current[idx] = el)}
-              key={item.id}
+              key={item?._id}
               className="display__notes__content"
             >
               <div>{item.title}</div>

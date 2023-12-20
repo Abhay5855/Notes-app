@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import AddNotes from "./AddNotes";
-import { CreateNotes } from "../../../api/api";
+import { CreateNotes, getNotes } from "../../../api/api";
 import { useSelector } from "react-redux";
 
 const AddNotesContainer = () => {
@@ -42,6 +42,10 @@ const AddNotesContainer = () => {
         content,
       };
       await CreateNotes(data, id);
+      await getNotes(id);
+      console.log("after creating notes");
+      setTitle("");
+      setContent("");
       setIsModalOpen(false);
     } catch (err) {
       console.log(err);
