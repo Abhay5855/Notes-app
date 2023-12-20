@@ -3,8 +3,20 @@ import AddNotesContainer from "../add_notes/AddNotesContainer";
 import { notesData } from "../../../../data";
 import "./notes.css";
 import Bricks from "bricks.js";
+import { getNotes } from "../../../api/api";
+import { set } from "lodash";
 const Notes = () => {
-  const [notes, setNotes] = useState(notesData);
+  const [notes, setNotes] = useState([]);
+
+  const fetchNotes = async () => {
+    const res = await getNotes();
+
+    setNotes(res);
+  };
+
+  useEffect(() => {
+    fetchNotes();
+  }, []);
 
   const mainContainerRef = useRef(null);
   const noteElRefs = useRef([]);

@@ -24,11 +24,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/register",
-    element: (
-      <ProtectedRoute path="/register">
-        <SignupContainer />
-      </ProtectedRoute>
-    ),
+    element: <SignupContainer />,
     errorElement: <ErrorPage />,
   },
   {

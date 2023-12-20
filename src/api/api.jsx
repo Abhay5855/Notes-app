@@ -13,3 +13,8 @@ export const Signin = async (data) => {
 export const CreateNotes = async (data, id) => {
   return await makeAPIRequest(`${BASE_URL}/notes/${id}/create`, "POST", data);
 };
+
+
+export const getNotes = async (id) => {
+  return await makeAPIRequest(`${BASE_URL}/notes/all/${id}`, "GET");
+};
