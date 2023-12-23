@@ -10,6 +10,9 @@
   font-size: 1.8em;
 }
 
+.input__container {
+  position: relative;
+}
 .input::placeholder {
   color: #333333;
   text-transform: capitalize;
@@ -24,7 +27,19 @@ label {
   font-size: 1.3em;
 }
 
-@media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
+.eye__icon {
+  top: 55%;
+  left: 95%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  cursor: pointer;
+}
+
+.eye__icon > span {
+  font-size: 2em;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 425px) {
   .input {
     height: 40px;
     font-size: 0.8em;
@@ -34,6 +49,36 @@ label {
   .error__msg {
     color: #cc4539;
     font-size: 0.4em;
+  }
+
+  .eye__icon {
+    top: 50%;
+    left: 90%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+  }
+
+  .eye__icon > span {
+    font-size: 1em;
+  }
+}
+@media only screen and (min-device-width: 425px) and (max-device-width: 767px) {
+  .input {
+    height: 40px;
+    font-size: 0.8em;
+    padding: 0 3px 0 10px;
+  }
+
+  .error__msg {
+    color: #cc4539;
+    font-size: 0.4em;
+  }
+
+  .eye__icon {
+    top: 50%;
+    left: 90%;
+    transform: translate(-50%, -50%);
+    position: absolute;
   }
 }
 
@@ -49,6 +94,16 @@ label {
     color: #cc4539;
     font-size: 0.6em;
   }
+
+  .eye__icon {
+    top: 50%;
+    left: 90%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+  }
+  .eye__icon > span {
+    font-size: 1em;
+  }
 }
 
 /* Styles for normal desktop screens */
@@ -63,6 +118,16 @@ label {
     color: #cc4539;
     font-size: 0.5em;
   }
+
+  .eye__icon {
+    position: absolute;
+    top: 60%;
+    left: 94%;
+    transform: translate(-50%, -50%);
+  }
+  .eye__icon > span {
+    font-size: 1.2em;
+  }
 }
 
 /* Styles for large desktop screens (like Macs) */
@@ -76,5 +141,16 @@ label {
   .error__msg {
     color: #cc4539;
     font-size: 0.6em;
+  }
+
+  .eye__icon {
+    top: 50%;
+    left: 90%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+  }
+
+  .eye__icon > span {
+    font-size: 1.3em;
   }
 }

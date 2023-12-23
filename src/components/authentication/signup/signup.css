@@ -1,15 +1,30 @@
 .signup__container {
+  background-size: cover;
+  background-position: center;
   width: 100%;
   height: 100vh;
-  background-image: url('../../../assets/images/notes.jpg');
-  background-position: center;
-  background-size: cover;
   background-repeat: no-repeat;
+  background-image: url('../../../assets/images/notes.jpg');
   z-index: -1;
 }
 
-.signup__formcontainer {
-  margin: 6em auto;
+.signup__form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  width: 50%;
+  border-radius: 2px;
+  box-shadow: 9px 0 9px 0 rgba(0, 0, 0, 0.1), 0 9px 9px 0 rgba(0, 0, 0, 0.1),
+    -9px 0 9px 0 rgba(0, 0, 0, 0.1), 0 -9px 9px 0 rgba(0, 0, 0, 0.1);
+  padding: 3em 4.5em;
+}
+
+.signup__form > form {
+  flex-direction: column;
+  display: flex;
+  gap: 1.6em;
 }
 
 .signup__heading {
@@ -22,34 +37,12 @@
 
 .signup__heading > span {
   color: #333333;
-  font-size: 1em;
+  font-size: 1.2em;
   font-weight: 400;
-  margin-bottom: 10px;
+  margin-bottom: 40px;
 }
 
-.signup__formcontainer > form {
-  background-color: #fff;
-  border-radius: 2px;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  gap: 1.6em;
-  padding: 3em 4.5em;
-  width: 50%;
-  margin: 0 auto;
-  box-shadow: 9px 0 9px 0 rgba(0, 0, 0, 0.1), 0 9px 9px 0 rgba(0, 0, 0, 0.1),
-    -9px 0 9px 0 rgba(0, 0, 0, 0.1), 0 -9px 9px 0 rgba(0, 0, 0, 0.1);
-}
-
-.signup__link {
-  color: #fbbc04;
-  text-decoration: none;
-  cursor: pointer;
-  font-size: 1.3em;
-  font-weight: 400;
-}
-
-.signup__already {
+.signup__ending {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -57,95 +50,65 @@
   margin-top: 22px;
 }
 
-.signup__already > span {
+.signup__ending > p {
   color: #737373;
-  font-size: 1.2em;
+  font-size: 1.5em;
   font-weight: 400;
 }
 
-@media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
-  .signup__formcontainer > form {
-    gap: 0.5em;
-    width: 90%;
-  }
-
-  .signup__formcontainer {
-    margin: 0.6em auto;
-  }
-
-  .signup__formcontainer > form {
-    padding: 0.5em 1em;
-  }
-
-  .signup__heading > img {
-    width: 15%;
-  }
-
-  .signup__heading > h1 {
-    font-size: 0.8em;
-    font-weight: 500;
-  }
-  .signup__already {
-    margin-top: 0.3em;
-  }
-  .signup__already > span {
-    font-size: 0.8em;
-    font-weight: 500;
-  }
-
-  .signup__link {
-    font-size: 0.8em;
-  }
+.signup__ending > a {
+  color: #fbbc04;
+  text-decoration: none;
+  font-size: 1.6em;
+  font-weight: 400;
 }
 
-/* Styles for tablets */
-@media only screen and (min-width: 768px) and (max-width: 1023px) {
-  .signup__formcontainer > form {
-    gap: 0.6em;
-    width: 60%;
-    padding: 1em 2em;
-  }
-
-  .signup__formcontainer {
-    margin: 1em auto;
-  }
-  .signup__link {
-    font-size: 0.8em;
-    font-weight: 500;
-  }
-
-  .signup__heading > img {
-    width: 15%;
-  }
-
-  .signup__heading > h1 {
-    font-size: 1.2em;
-    font-weight: 600;
-  }
-
-  .signup__already {
-    margin-top: 0.3em;
-  }
-  .signup__already > span {
-    font-size: 0.8em;
-    font-weight: 500;
-  }
-}
-
-/* Styles for normal desktop screens */
-@media only screen and (min-width: 1024px) and (max-width: 1439px) {
-  .signup__formcontainer > form {
-    gap: 0.6em;
+/* media queries */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .signup__form {
     width: 50%;
     padding: 1em 2em;
   }
 
-  .signup__formcontainer {
-    margin: 0.5em auto;
+  .signup__heading > img {
+    width: 15%;
   }
-  .signup__link {
+
+  .signup__heading > h1 {
+    font-size: 1em;
+    font-weight: 600;
+  }
+
+  .signup__form > form {
+    flex-direction: column;
+    display: flex;
+    gap: 0.8em;
+  }
+
+  .signup__heading > span {
+    font-size: 1em;
+    font-weight: 400;
+    margin-bottom: 20px;
+  }
+  .signup__ending {
+    margin-top: 15px;
+  }
+
+  .signup__ending > p {
+    font-size: 0.8em;
+  }
+
+  .signup__ending > a {
     font-size: 0.8em;
     font-weight: 500;
+  }
+}
+
+/* Mobiles */
+@media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
+  .signup__form {
+    width: 90%;
+    padding: 1em 0.8em;
   }
 
   .signup__heading > img {
@@ -153,45 +116,81 @@
   }
 
   .signup__heading > h1 {
-    font-size: 1.2em;
+    font-size: 1em;
     font-weight: 600;
   }
 
-  .signup__already {
-    margin-top: 0.3em;
+  .signup__form > form {
+    flex-direction: column;
+    display: flex;
+    gap: 0.8em;
   }
-  .signup__already > span {
+
+  .signup__heading > span {
+    font-size: 1em;
+    font-weight: 400;
+    margin-bottom: 20px;
+  }
+  .signup__ending {
+    margin-top: 15px;
+  }
+
+  .signup__ending > p {
+    font-size: 0.8em;
+  }
+
+  .signup__ending > a {
     font-size: 0.8em;
     font-weight: 500;
   }
 }
 
-/* Styles for large desktop screens (like Macs) */
-@media only screen and (min-width: 1440px) and (max-width: 1919px) {
-  .signup__formcontainer > form {
-    gap: 0.8em;
+@media (min-width: 1441px) {
+}
+
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .signup__form {
     width: 45%;
-  }
-  .signup__already > span {
-    font-size: 0.8em;
-    font-weight: 500;
-  }
-
-  .signup__formcontainer {
-    margin: 2em auto;
-  }
-
-  .signup__link {
-    font-size: 0.8em;
-    font-weight: 500;
-  }
-
-  .signup__already {
-    margin-top: 0.5em;
-  }
-
-  .signup__formcontainer > form {
-    gap: 1em;
     padding: 1em 2em;
+  }
+
+  .signup__ending {
+    margin-top: 10px;
+  }
+
+  .signup__heading > img {
+    width: 15%;
+  }
+
+  .signup__heading > h1 {
+    font-size: 1em;
+    font-weight: 600;
+  }
+
+  .signup__form > form {
+    flex-direction: column;
+    display: flex;
+    gap: 0.8em;
+  }
+
+  .signup__heading > span {
+    font-size: 1em;
+    font-weight: 400;
+    margin-bottom: 20px;
+  }
+  .signup__ending {
+    margin-top: 15px;
+  }
+
+  .signup__ending > p {
+    font-size: 0.8em;
+    font-weight: 400;
+  }
+
+  .signup__ending > a {
+    color: #fbbc04;
+    text-decoration: none;
+    font-size: 0.8em;
+    font-weight: 400;
   }
 }

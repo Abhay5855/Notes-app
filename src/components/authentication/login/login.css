@@ -6,6 +6,7 @@
   background-repeat: no-repeat;
   background-image: url('../../../assets/images/notes.jpg');
   z-index: -1;
+  position: relative;
 }
 
 .login__form {
@@ -14,7 +15,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   background: #fff;
-  width: 45%;
+  width: 50%;
   border-radius: 2px;
   box-shadow: 9px 0 9px 0 rgba(0, 0, 0, 0.1), 0 9px 9px 0 rgba(0, 0, 0, 0.1),
     -9px 0 9px 0 rgba(0, 0, 0, 0.1), 0 -9px 9px 0 rgba(0, 0, 0, 0.1);
@@ -151,6 +152,46 @@
 @media (min-width: 1025px) and (max-width: 1440px) {
   .login__form {
     width: 45%;
-    padding: 2em;
+    padding: 1em 2em;
+  }
+
+  .login__ending {
+    margin-top: 10px;
+  }
+
+  .login__heading > img {
+    width: 15%;
+  }
+
+  .login__heading > h1 {
+    font-size: 1em;
+    font-weight: 600;
+  }
+
+  .login__form > form {
+    flex-direction: column;
+    display: flex;
+    gap: 0.8em;
+  }
+
+  .login__heading > span {
+    font-size: 1em;
+    font-weight: 400;
+    margin-bottom: 20px;
+  }
+  .login__ending {
+    margin-top: 15px;
+  }
+
+  .login__ending > p {
+    font-size: 0.8em;
+    font-weight: 400;
+  }
+
+  .login__ending > a {
+    color: #fbbc04;
+    text-decoration: none;
+    font-size: 0.8em;
+    font-weight: 400;
   }
 }

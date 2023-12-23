@@ -15,12 +15,12 @@ const Signup = ({
 }) => {
   return (
     <div className='signup__container'>
-      <div className='signup__formcontainer'>
+      <div className='signup__form'>
+        <div className='signup__heading'>
+          <img src={logo} />
+          <h1>WhizNotes</h1>
+        </div>
         <form autoComplete='off' onSubmit={handleSubmit}>
-          <div className='signup__heading'>
-            <img src={logo} />
-            <h1>WhizNotes</h1>
-          </div>
           <Input
             type='email'
             placeholder='email'
@@ -74,14 +74,13 @@ const Signup = ({
             label='Sign up'
             isDisabled={isDisabled}
           />
-
-          <div className='signup__already'>
-            <span>Already have a account ?</span>
-            <NavLink to='/' className='signup__link'>
-              Login
-            </NavLink>
-          </div>
         </form>
+        <div className='signup__ending'>
+          <span>Already have a account ?</span>
+          <NavLink to='/' className='signup__link'>
+            Login
+          </NavLink>
+        </div>
       </div>
     </div>
   );
