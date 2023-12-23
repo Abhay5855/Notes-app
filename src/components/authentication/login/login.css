@@ -14,9 +14,10 @@
   left: 50%;
   transform: translate(-50%, -50%);
   background: #fff;
-  width: 40%;
+  width: 45%;
   border-radius: 2px;
-  box-shadow: 12px 12px 12px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 9px 0 9px 0 rgba(0, 0, 0, 0.1), 0 9px 9px 0 rgba(0, 0, 0, 0.1),
+    -9px 0 9px 0 rgba(0, 0, 0, 0.1), 0 -9px 9px 0 rgba(0, 0, 0, 0.1);
   padding: 3em 4.5em;
 }
 
@@ -36,7 +37,7 @@
 
 .login__heading > span {
   color: #333333;
-  font-size: 1em;
+  font-size: 1.2em;
   font-weight: 400;
   margin-bottom: 40px;
 }
@@ -51,22 +52,55 @@
 
 .login__ending > p {
   color: #737373;
-  font-size: 1.2em;
+  font-size: 1.5em;
   font-weight: 400;
 }
 
 .login__ending > a {
   color: #fbbc04;
   text-decoration: none;
-  font-size: 1em;
+  font-size: 1.6em;
   font-weight: 400;
 }
 
 /* media queries */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
   .login__form {
-    width: 60%;
-    padding: 3em 2em;
+    width: 50%;
+    padding: 1em 2em;
+  }
+
+  .login__heading > img {
+    width: 15%;
+  }
+
+  .login__heading > h1 {
+    font-size: 1em;
+    font-weight: 600;
+  }
+
+  .login__form > form {
+    flex-direction: column;
+    display: flex;
+    gap: 0.8em;
+  }
+
+  .login__heading > span {
+    font-size: 1em;
+    font-weight: 400;
+    margin-bottom: 20px;
+  }
+  .login__ending {
+    margin-top: 15px;
+  }
+
+  .login__ending > p {
+    font-size: 0.8em;
+  }
+
+  .login__ending > a {
+    font-size: 0.8em;
+    font-weight: 500;
   }
 }
 
@@ -74,7 +108,40 @@
 @media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
   .login__form {
     width: 90%;
-    padding: 3em 2em;
+    padding: 1em 0.8em;
+  }
+
+  .login__heading > img {
+    width: 15%;
+  }
+
+  .login__heading > h1 {
+    font-size: 1em;
+    font-weight: 600;
+  }
+
+  .login__form > form {
+    flex-direction: column;
+    display: flex;
+    gap: 0.8em;
+  }
+
+  .login__heading > span {
+    font-size: 1em;
+    font-weight: 400;
+    margin-bottom: 20px;
+  }
+  .login__ending {
+    margin-top: 15px;
+  }
+
+  .login__ending > p {
+    font-size: 0.8em;
+  }
+
+  .login__ending > a {
+    font-size: 0.8em;
+    font-weight: 500;
   }
 }
 
@@ -83,7 +150,7 @@
 
 @media (min-width: 1025px) and (max-width: 1440px) {
   .login__form {
-    width: 60%;
-    padding: 3em 2em;
+    width: 45%;
+    padding: 2em;
   }
 }
