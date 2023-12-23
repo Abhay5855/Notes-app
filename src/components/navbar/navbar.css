@@ -4,7 +4,7 @@ nav {
   align-items: center;
   padding: 0.5em 7em 0.5em 7em;
   height: 68px;
-  position:sticky;
+  position: sticky;
   top: 0;
 }
 
@@ -74,6 +74,14 @@ nav {
   cursor: pointer;
 }
 
+.nav__logout {
+  text-decoration: none;
+  color: #fff;
+  text-transform: capitalize;
+  font-size: 0.8em;
+  cursor: pointer;
+}
+
 /* tablets */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
   nav {
@@ -91,7 +99,7 @@ nav {
     padding: 0.5em 1em 0.5em 1em;
   }
 
-  .nav__list  {
+  .nav__list {
     display: none;
   }
 
