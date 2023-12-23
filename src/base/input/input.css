@@ -30,6 +30,11 @@ label {
     font-size: 0.8em;
     padding: 0 3px 0 10px;
   }
+
+  .error__msg {
+    color: #cc4539;
+    font-size: 0.4em;
+  }
 }
 
 /* Styles for tablets */
@@ -38,6 +43,11 @@ label {
     height: 40px;
     font-size: 0.8em;
     padding: 0 3px 0 10px;
+  }
+
+  .error__msg {
+    color: #cc4539;
+    font-size: 0.6em;
   }
 }
 
@@ -48,6 +58,11 @@ label {
     font-size: 0.8em;
     padding: 3px 8px;
   }
+
+  .error__msg {
+    color: #cc4539;
+    font-size: 0.5em;
+  }
 }
 
 /* Styles for large desktop screens (like Macs) */
@@ -56,5 +71,10 @@ label {
     height: 50px;
     font-size: 1em;
     padding: 0 3px 0 10px;
+  }
+
+  .error__msg {
+    color: #cc4539;
+    font-size: 0.6em;
   }
 }
