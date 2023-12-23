@@ -1,7 +1,7 @@
 .signup__container {
   width: 100%;
   height: 100vh;
-  background-image: url("../../../assets/images/notes.jpg");
+  background-image: url('../../../assets/images/notes.jpg');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -24,7 +24,7 @@
   color: #333333;
   font-size: 1em;
   font-weight: 400;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
 }
 
 .signup__formcontainer > form {
@@ -37,14 +37,15 @@
   padding: 3em 4.5em;
   width: 50%;
   margin: 0 auto;
-  box-shadow: 9px 9px 9px 9px rgba(0, 0, 0, 0.1);
+  box-shadow: 9px 0 9px 0 rgba(0, 0, 0, 0.1), 0 9px 9px 0 rgba(0, 0, 0, 0.1),
+    -9px 0 9px 0 rgba(0, 0, 0, 0.1), 0 -9px 9px 0 rgba(0, 0, 0, 0.1);
 }
 
 .signup__link {
   color: #fbbc04;
   text-decoration: none;
   cursor: pointer;
-  font-size: 1em;
+  font-size: 1.3em;
   font-weight: 400;
 }
 
@@ -64,56 +65,133 @@
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
   .signup__formcontainer > form {
-    gap: 1em;
+    gap: 0.5em;
     width: 90%;
   }
 
   .signup__formcontainer {
-    margin: 5em auto;
+    margin: 0.6em auto;
   }
 
   .signup__formcontainer > form {
-    padding: 3em 2em;
+    padding: 0.5em 1em;
+  }
+
+  .signup__heading > img {
+    width: 15%;
+  }
+
+  .signup__heading > h1 {
+    font-size: 0.8em;
+    font-weight: 500;
+  }
+  .signup__already {
+    margin-top: 0.3em;
+  }
+  .signup__already > span {
+    font-size: 0.8em;
+    font-weight: 500;
+  }
+
+  .signup__link {
+    font-size: 0.8em;
   }
 }
 
 /* Styles for tablets */
-@media only screen and (min-width: 600px) and (max-width: 1023px) {
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
   .signup__formcontainer > form {
-    gap: 1em;
+    gap: 0.6em;
     width: 60%;
+    padding: 1em 2em;
   }
 
   .signup__formcontainer {
-    margin: 6em auto;
+    margin: 1em auto;
+  }
+  .signup__link {
+    font-size: 0.8em;
+    font-weight: 500;
   }
 
-  .signup__formcontainer > form {
-    padding: 1.4em 2em;
+  .signup__heading > img {
+    width: 15%;
+  }
+
+  .signup__heading > h1 {
+    font-size: 1.2em;
+    font-weight: 600;
+  }
+
+  .signup__already {
+    margin-top: 0.3em;
+  }
+  .signup__already > span {
+    font-size: 0.8em;
+    font-weight: 500;
   }
 }
 
 /* Styles for normal desktop screens */
 @media only screen and (min-width: 1024px) and (max-width: 1439px) {
   .signup__formcontainer > form {
-    gap: 1.3em;
+    gap: 0.6em;
     width: 50%;
+    padding: 1em 2em;
   }
 
   .signup__formcontainer {
-    margin: 5em auto;
+    margin: 0.5em auto;
+  }
+  .signup__link {
+    font-size: 0.8em;
+    font-weight: 500;
+  }
+
+  .signup__heading > img {
+    width: 15%;
+  }
+
+  .signup__heading > h1 {
+    font-size: 1.2em;
+    font-weight: 600;
+  }
+
+  .signup__already {
+    margin-top: 0.3em;
+  }
+  .signup__already > span {
+    font-size: 0.8em;
+    font-weight: 500;
   }
 }
 
 /* Styles for large desktop screens (like Macs) */
 @media only screen and (min-width: 1440px) and (max-width: 1919px) {
   .signup__formcontainer > form {
-    gap: 1.3em;
-    width: 40%;
-    min-height: 550px;
+    gap: 0.8em;
+    width: 45%;
+  }
+  .signup__already > span {
+    font-size: 0.8em;
+    font-weight: 500;
   }
 
   .signup__formcontainer {
-    margin: 4em auto;
+    margin: 2em auto;
+  }
+
+  .signup__link {
+    font-size: 0.8em;
+    font-weight: 500;
+  }
+
+  .signup__already {
+    margin-top: 0.5em;
+  }
+
+  .signup__formcontainer > form {
+    gap: 1em;
+    padding: 1em 2em;
   }
 }

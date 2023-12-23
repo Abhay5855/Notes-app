@@ -1,9 +1,9 @@
-import React from "react";
-import "./signup.css";
-import Input from "../../../base/input/Input";
-import Button from "../../../base/button/Button";
-import { NavLink } from "react-router-dom";
-import logo from "../../../assets/images/icon.png";
+import React from 'react';
+import './signup.css';
+import Input from '../../../base/input/Input';
+import Button from '../../../base/button/Button';
+import { NavLink } from 'react-router-dom';
+import logo from '../../../assets/images/icon.png';
 const Signup = ({
   formData,
   handleChange,
@@ -14,71 +14,70 @@ const Signup = ({
   validated,
 }) => {
   return (
-    <div className="signup__container">
-      <div className="signup__formcontainer">
-        <form autoComplete="off" onSubmit={handleSubmit}>
-          <div className="signup__heading">
+    <div className='signup__container'>
+      <div className='signup__formcontainer'>
+        <form autoComplete='off' onSubmit={handleSubmit}>
+          <div className='signup__heading'>
             <img src={logo} />
             <h1>WhizNotes</h1>
-            <span>Remember everything important</span>
           </div>
           <Input
-            type="email"
-            placeholder="email"
+            type='email'
+            placeholder='email'
             required={true}
-            name="email"
+            name='email'
             value={formData.email}
             onChange={handleChange}
             feedbackMessage={
-              touched.email || validated ? isInvalidMessage("email") : ""
+              touched.email || validated ? isInvalidMessage('email') : ''
             }
           />
           <Input
-            type="string"
-            placeholder="First Name"
+            type='string'
+            placeholder='First Name'
             required={true}
-            name="firstName"
+            name='firstName'
             value={formData.firstName}
             onChange={handleChange}
             feedbackMessage={
               touched.firstName || validated
-                ? isInvalidMessage("firstName")
-                : ""
+                ? isInvalidMessage('firstName')
+                : ''
             }
           />
           <Input
-            type="string"
-            placeholder="Last Name"
+            type='string'
+            placeholder='Last Name'
             required={true}
-            name="lastName"
+            name='lastName'
             value={formData.lastName}
             onChange={handleChange}
             feedbackMessage={
-              touched.lastName || validated ? isInvalidMessage("lastName") : ""
+              touched.lastName || validated ? isInvalidMessage('lastName') : ''
             }
           />
           <Input
-            type="password"
-            placeholder="password"
+            type='password'
+            placeholder='password'
             required={true}
-            name="password"
+            name='password'
             value={formData.password}
             onChange={handleChange}
             feedbackMessage={
-              touched.password || validated ? isInvalidMessage("password") : ""
+              touched.password || validated ? isInvalidMessage('password') : ''
             }
           />
 
           <Button
-            type="submit"
-            variant="submit"
-            label="Sign up"
+            type='submit'
+            variant='submit'
+            label='Sign up'
             isDisabled={isDisabled}
           />
 
-          <div className="signup__already">
+          <div className='signup__already'>
             <span>Already have a account ?</span>
-            <NavLink to="/" className="signup__link">
+            <NavLink to='/' className='signup__link'>
               Login
             </NavLink>
           </div>

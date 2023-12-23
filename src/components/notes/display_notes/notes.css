@@ -11,7 +11,7 @@
   border-radius: 8px;
   width: 240px;
   background-color: #202124;
-  min-height: 60px;
+  min-height: 100px;
   padding: 0.8em 1.2em 0 1.2em;
   margin: 10px;
   border: 1px solid #5f6368;
@@ -22,7 +22,12 @@
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 10;
-  overflow: hidden;
+   overflow: hidden;
+}
+
+.display__notes__title {
+
+    text-transform: capitalize;
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 767px) {

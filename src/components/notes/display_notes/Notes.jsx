@@ -54,16 +54,26 @@ const Notes = ({notes}) => {
         {/* Display Notes */}
         <div ref={mainContainerRef} className="display__notes">
           {notes?.map((item, idx) => (
+            <>
             <div
               ref={(el) => (noteElRefs.current[idx] = el)}
               key={item?._id}
               className="display__notes__content"
             >
-              <div>{item.title}</div>
-              <div>{item.content}</div>
+              <div className="display__notes__title">{item?.title}</div>
+              <div
+      dangerouslySetInnerHTML={{__html: item?.content}}
+    />
             </div>
+
+            <p>Edit</p>
+            </>
+            
+
           ))}
+          
         </div>
+        
       </div>
     </>
   );
