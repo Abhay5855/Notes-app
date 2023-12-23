@@ -4,7 +4,7 @@ import { defineConfig } from "vite";
 export default defineConfig({
   proxy: {
     "/api": {
-      target: import.meta.env.VITE_BASE_URL,
+      target: process.env.VITE_BASE_URL,
       changeOrigin: true,
       secure: true,
       rewrite: (path) => path.replace(/^\/api/, ""),
