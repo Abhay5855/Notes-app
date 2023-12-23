@@ -1,9 +1,9 @@
-import React from 'react';
-import './signup.css';
-import Input from '../../../base/input/Input';
-import Button from '../../../base/button/Button';
-import { NavLink } from 'react-router-dom';
-import logo from '../../../assets/images/icon.png';
+import React from "react";
+import "./signup.css";
+import Input from "../../../base/input/Input";
+import Button from "../../../base/button/Button";
+import { NavLink } from "react-router-dom";
+import logo from "../../../assets/images/icon.png";
 const Signup = ({
   formData,
   handleChange,
@@ -29,11 +29,11 @@ const Signup = ({
             value={formData.email}
             onChange={handleChange}
             feedbackMessage={
-              touched.email || validated ? isInvalidMessage('email') : ''
+              touched.email || validated ? isInvalidMessage("email") : ""
             }
           />
           <Input
-            type='string'
+            type='text'
             placeholder='First Name'
             required={true}
             name='firstName'
@@ -41,19 +41,19 @@ const Signup = ({
             onChange={handleChange}
             feedbackMessage={
               touched.firstName || validated
-                ? isInvalidMessage('firstName')
-                : ''
+                ? isInvalidMessage("firstName")
+                : ""
             }
           />
           <Input
-            type='string'
+            type='text'
             placeholder='Last Name'
             required={true}
             name='lastName'
             value={formData.lastName}
             onChange={handleChange}
             feedbackMessage={
-              touched.lastName || validated ? isInvalidMessage('lastName') : ''
+              touched.lastName || validated ? isInvalidMessage("lastName") : ""
             }
           />
           <Input
@@ -64,7 +64,7 @@ const Signup = ({
             value={formData.password}
             onChange={handleChange}
             feedbackMessage={
-              touched.password || validated ? isInvalidMessage('password') : ''
+              touched.password || validated ? isInvalidMessage("password") : ""
             }
           />
 

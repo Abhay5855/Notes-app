@@ -15,19 +15,16 @@ const LoginContainer = () => {
 
   const [touched, setTouched] = useState({});
   const [validated, setValidated] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { state } = useLocation();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsLoading(true);
     setValidated(true);
 
     try {
       const res = await Signin(formData);
-
       const { token } = res;
       const { email, firstName, lastName, _id } = res.user;
 
@@ -44,8 +41,6 @@ const LoginContainer = () => {
       dispatch(login(data));
       navigate(state?.path || "/home");
     } catch (err) {
-      console.log(err);
-      setIsLoading(false);
       setFormData({
         email: "",
         password: "",

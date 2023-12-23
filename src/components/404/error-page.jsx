@@ -4,19 +4,19 @@ import errorLogo from "../../assets/images/404.svg";
 import { NavLink } from "react-router-dom";
 export default function ErrorPage() {
   const error = useRouteError();
-  console.error(error.status, "status");
+  console.error(error, "status");
 
   return (
     <div>
-      <div id="error-page">
+      <div id='error-page'>
         {error.status === 404 ? (
           <>
-            <img src={errorLogo} alt="404" />
+            <img src={errorLogo} alt='404' />
 
-            <div className="error__link">
-              <NavLink to="/">
-                <div className="error__content">
-                  <span class="material-symbols-outlined">arrow_left_alt</span>
+            <div className='error__link'>
+              <NavLink to='/'>
+                <div className='error__content'>
+                  <span class='material-symbols-outlined'>arrow_left_alt</span>
                   <p>Go back to login</p>
                 </div>
               </NavLink>
