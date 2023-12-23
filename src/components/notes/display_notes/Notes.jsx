@@ -1,12 +1,9 @@
 import React, { useEffect, useRef } from "react";
 import AddNotesContainer from "../add_notes/AddNotesContainer";
-import { notesData } from "../../../../data";
 import "./notes.css";
 import Bricks from "bricks.js";
 import { getNotes } from "../../../api/api";
-import { set } from "lodash";
-const Notes = ({notes}) => {
-
+const Notes = ({ notes }) => {
   const mainContainerRef = useRef(null);
   const noteElRefs = useRef([]);
 
@@ -48,32 +45,26 @@ const Notes = ({notes}) => {
 
   return (
     <>
-      <div className="display__notes__container">
+      <div className='display__notes__container'>
         <AddNotesContainer />
 
         {/* Display Notes */}
-        <div ref={mainContainerRef} className="display__notes">
+        <div ref={mainContainerRef} className='display__notes'>
           {notes?.map((item, idx) => (
             <>
-            <div
-              ref={(el) => (noteElRefs.current[idx] = el)}
-              key={item?._id}
-              className="display__notes__content"
-            >
-              <div className="display__notes__title">{item?.title}</div>
               <div
-      dangerouslySetInnerHTML={{__html: item?.content}}
-    />
-            </div>
+                ref={(el) => (noteElRefs.current[idx] = el)}
+                key={item?._id}
+                className='display__notes__content'
+              >
+                <div className='display__notes__title'>{item?.title}</div>
+                <div dangerouslySetInnerHTML={{ __html: item?.content }} />
+              </div>
 
-            <p>Edit</p>
+              <p>Edit</p>
             </>
-            
-
           ))}
-          
         </div>
-        
       </div>
     </>
   );
