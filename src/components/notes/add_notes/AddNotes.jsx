@@ -15,8 +15,9 @@ const AddNotes = ({
   onChange,
   setContent,
   onSubmit,
+  isLoading,
 }) => {
-  const isDisabled = isEmpty(title);
+  const isDisabled = isEmpty(title) || isLoading;
 
   return (
     <>

@@ -7,6 +7,7 @@ const NotesContainer = () => {
 
   const [id, setId] = useState("");
   const [notes, setNotes] = useState([]);
+  const [isPinned, setIsPinned] = useState(false);
 
   useEffect(() => {
     setId(userId._id);
@@ -27,9 +28,23 @@ const NotesContainer = () => {
     fetchNotes();
   }, [userId]);
 
+  //pin-unpin notes
+
+  const handlePinnedNotes = () => {
+    try {
+      setIsPinned(!isPinned);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <>
-      <Notes notes={notes} />
+      <Notes
+        notes={notes}
+        isPinned={isPinned}
+        handlePinnedNotes={handlePinnedNotes}
+      />
     </>
   );
 };

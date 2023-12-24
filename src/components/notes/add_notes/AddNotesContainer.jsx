@@ -11,6 +11,7 @@ const AddNotesContainer = () => {
   const loggedInUser = useSelector((state) => state.auth.userData);
 
   const [userDetails, setUserDetails] = useState({});
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     setUserDetails(loggedInUser);
@@ -32,6 +33,7 @@ const AddNotesContainer = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
     try {
       const id = userDetails._id;
@@ -41,15 +43,16 @@ const AddNotesContainer = () => {
       };
       await CreateNotes(data, id);
       await getNotes(id);
-      console.log("after creating notes");
       setTitle("");
       setContent("");
-      setIsModalOpen(false);
+      handleCancel();
+      setLoading(false);
     } catch (err) {
       console.log(err);
       setTitle("");
       setContent("");
-      setIsModalOpen(false);
+      handleCancel();
+      setLoading(false);
     }
   };
 
@@ -65,6 +68,7 @@ const AddNotesContainer = () => {
         onChange={handleChange}
         setContent={setContent}
         onSubmit={handleSubmit}
+        isLoading={loading}
       />
     </div>
   );
