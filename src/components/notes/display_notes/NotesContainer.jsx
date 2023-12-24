@@ -25,13 +25,14 @@ const NotesContainer = () => {
   }, [notesData, notes]);
 
   //getnotes
+  console.log(id);
 
   const initData = (id) => {
     dispatch(fetchNotes(id));
   };
   useEffect(() => {
     if (id) {
-      initData();
+      initData(id);
     }
   }, [id]);
 
