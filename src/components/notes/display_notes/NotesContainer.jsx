@@ -24,9 +24,13 @@ const NotesContainer = () => {
   }, [notesData, notes]);
 
   //getnotes
+
+  const initData = (id) => {
+    dispatch(fetchNotes(id));
+  };
   useEffect(() => {
     if (id) {
-      dispatch(fetchNotes(id));
+      initData();
     }
   }, [id]);
 
@@ -42,7 +46,7 @@ const NotesContainer = () => {
   const handleDelete = (noteId) => {
     try {
       dispatch(deleteSelected({ userId: id, noteId }));
-      dispatch(fetchNotes(id));
+      initData(id);
     } catch (err) {
       console.log(err);
     }

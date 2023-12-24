@@ -14,8 +14,6 @@ export const deleteSelected = createAsyncThunk(
   "note/deleteNotes",
   async ({ userId, noteId }) => {
     await deleteNotes(userId, noteId);
-
-    return noteId;
   }
 );
 
