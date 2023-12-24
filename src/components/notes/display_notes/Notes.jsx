@@ -3,8 +3,9 @@ import AddNotesContainer from "../add_notes/AddNotesContainer";
 import "./notes.css";
 import Bricks from "bricks.js";
 import pin from "../../../assets/images/pin.svg";
+import Loader from "../../../base/loader/Loader";
 
-const Notes = ({ notes, handlePinnedNotes, isPinned }) => {
+const Notes = ({ notes, handlePinnedNotes, isPinned, isLoading }) => {
   const mainContainerRef = useRef(null);
   const noteElRefs = useRef([]);
 
@@ -50,41 +51,54 @@ const Notes = ({ notes, handlePinnedNotes, isPinned }) => {
         <AddNotesContainer />
 
         <div ref={mainContainerRef} className='display__notes__ref'>
-          {notes?.map((item, idx) => (
-            <div
-              ref={(el) => (noteElRefs.current[idx] = el)}
-              key={item?._id}
-              className='display__notes'
-            >
-              <div key={item?.id} ref={(el) => (noteElRefs.current[idx] = el)}>
-                <div className='display__notes__title'>
-                  <div className='notes__title'>{item?.title}</div>
-                  <div onClick={() => handlePinnedNotes()}>
-                    {isPinned ? (
-                      <img src={pin} alt='pin' />
-                    ) : (
-                      <span class='material-symbols-outlined'>push_pin</span>
-                    )}
+          {isLoading ? (
+            <Loader />
+          ) : (
+            <>
+              {notes?.map((item, idx) => (
+                <div
+                  ref={(el) => (noteElRefs.current[idx] = el)}
+                  key={item?._id}
+                  className='display__notes'
+                >
+                  <div
+                    key={item?.id}
+                    ref={(el) => (noteElRefs.current[idx] = el)}
+                  >
+                    <div className='display__notes__title'>
+                      <div className='notes__title'>{item?.title}</div>
+                      <div onClick={() => handlePinnedNotes()}>
+                        {isPinned ? (
+                          <img src={pin} alt='pin' />
+                        ) : (
+                          <span class='material-symbols-outlined'>
+                            push_pin
+                          </span>
+                        )}
+                      </div>
+                    </div>
+
+                    <div className='display__notes__content__container'>
+                      <div
+                        className='display__notes__content'
+                        dangerouslySetInnerHTML={{ __html: item?.content }}
+                      />
+                    </div>
+
+                    <div className='display__notes__icons'>
+                      <span class='material-symbols-outlined'>delete</span>
+                      <span class='material-symbols-outlined'>archive</span>
+                      <span class='material-symbols-outlined'>palette</span>
+                      <span class='material-symbols-outlined'>edit</span>
+                      <span class='material-symbols-outlined'>
+                        content_copy
+                      </span>
+                    </div>
                   </div>
                 </div>
-
-                <div className='display__notes__content__container'>
-                  <div
-                    className='display__notes__content'
-                    dangerouslySetInnerHTML={{ __html: item?.content }}
-                  />
-                </div>
-
-                <div className='display__notes__icons'>
-                  <span class='material-symbols-outlined'>delete</span>
-                  <span class='material-symbols-outlined'>archive</span>
-                  <span class='material-symbols-outlined'>palette</span>
-                  <span class='material-symbols-outlined'>edit</span>
-                  <span class='material-symbols-outlined'>content_copy</span>
-                </div>
-              </div>
-            </div>
-          ))}
+              ))}
+            </>
+          )}
         </div>
       </div>
     </>

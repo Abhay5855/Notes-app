@@ -6,6 +6,10 @@ import { fetchNotes } from "../../../redux/slice/notesSlice";
 const NotesContainer = () => {
   const userId = useSelector((state) => state.auth.userData);
 
+  const notesData = useSelector((state) => state.note.notesData);
+
+  const { isLoading } = useSelector((state) => state.note);
+
   const [id, setId] = useState("");
   const [notes, setNotes] = useState([]);
   const [isPinned, setIsPinned] = useState(false);
@@ -15,7 +19,9 @@ const NotesContainer = () => {
     setId(userId._id);
   }, [id, userId]);
 
-  console.log(id, "this is id");
+  useEffect(() => {
+    setNotes(notesData);
+  }, [notesData, notes]);
 
   //getnotes
   useEffect(() => {
@@ -37,6 +43,7 @@ const NotesContainer = () => {
   return (
     <>
       <Notes
+        isLoading={isLoading}
         notes={notes}
         isPinned={isPinned}
         handlePinnedNotes={handlePinnedNotes}

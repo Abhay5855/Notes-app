@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import AddNotes from "./AddNotes";
-import { CreateNotes, getNotes } from "../../../api/api";
-import { useSelector } from "react-redux";
+import { CreateNotes } from "../../../api/api";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchNotes } from "../../../redux/slice/notesSlice";
 
 const AddNotesContainer = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -12,6 +13,7 @@ const AddNotesContainer = () => {
 
   const [userDetails, setUserDetails] = useState({});
   const [loading, setLoading] = useState(false);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     setUserDetails(loggedInUser);
@@ -42,7 +44,7 @@ const AddNotesContainer = () => {
         content,
       };
       await CreateNotes(data, id);
-      await getNotes(id);
+      dispatch(fetchNotes(id));
       setTitle("");
       setContent("");
       handleCancel();
