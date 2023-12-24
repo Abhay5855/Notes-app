@@ -12,6 +12,7 @@ const Signup = ({
   touched,
   isDisabled,
   validated,
+  isLoading,
 }) => {
   return (
     <div className='signup__container'>
@@ -73,6 +74,7 @@ const Signup = ({
             variant='submit'
             label='Sign up'
             isDisabled={isDisabled}
+            isLoading={isLoading}
           />
         </form>
         <div className='signup__ending'>

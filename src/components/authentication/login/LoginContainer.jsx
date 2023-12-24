@@ -19,6 +19,7 @@ const LoginContainer = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { state } = useLocation();
+  const [loading, setLoading] = useState(false);
 
   const toastRef = useRef();
 
@@ -29,6 +30,7 @@ const LoginContainer = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setValidated(true);
+    setLoading(true);
 
     try {
       const res = await Signin(formData);
@@ -47,8 +49,10 @@ const LoginContainer = () => {
       localStorage.setItem("access_token", JSON.stringify(token));
       dispatch(login(data));
       navigate(state?.path || "/home");
+      setLoading(false);
       addToast();
     } catch (err) {
+      setLoading(false);
       setFormData({
         email: "",
         password: "",
@@ -92,6 +96,7 @@ const LoginContainer = () => {
         isDisabled={isDisabled}
         isInvalidMessage={isInvalidMessage}
         validated={validated}
+        isLoading={loading}
       />
       <ToastPortal ref={toastRef} />
     </div>

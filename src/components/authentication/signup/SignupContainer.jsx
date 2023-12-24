@@ -15,6 +15,7 @@ const SignupContainer = () => {
 
   const [touched, setTouched] = useState({});
   const [validated, setValidated] = useState(false);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   // handleChange
@@ -30,11 +31,15 @@ const SignupContainer = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setValidated(true);
+    setLoading(true);
 
     try {
       await Register(formData);
+      setLoading(false);
       navigate("/");
     } catch (err) {
+      setLoading(false);
+
       setFormData({
         email: "",
         password: "",
@@ -92,6 +97,7 @@ const SignupContainer = () => {
         touched={touched}
         isDisabled={isDisabled}
         validated={validated}
+        isLoading={loading}
       />
     </div>
   );

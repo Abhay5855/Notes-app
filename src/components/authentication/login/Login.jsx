@@ -13,6 +13,7 @@ const Login = ({
   touched,
   formData,
   isInvalidMessage,
+  isLoading,
 }) => {
   return (
     <>
@@ -54,6 +55,7 @@ const Login = ({
               variant='submit'
               label='Login'
               isDisabled={isDisabled}
+              isLoading={isLoading}
             />
           </form>
 
