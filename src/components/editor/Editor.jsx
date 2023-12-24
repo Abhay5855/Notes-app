@@ -6,21 +6,21 @@ import Input from "../../base/input/Input";
 
 const Editor = ({ title, onChange, content, setContent, onSubmit }) => {
   return (
-    <div className="editor__content">
+    <div className='editor__content'>
       <h2>Add Note</h2>
 
-      <form action="" onSubmit={onSubmit}>
+      <form action='submit' onSubmit={onSubmit}>
         <Input
-          placeholder="Enter title"
+          placeholder='Enter title'
           required={true}
-          name="title"
+          name='title'
           value={title}
           onChange={onChange}
         />
-        <div className="editor__container">
+        <div className='editor__container'>
           <ReactQuill
-            theme="snow"
-            name="content"
+            theme='snow'
+            name='content'
             value={content}
             onChange={setContent}
           />

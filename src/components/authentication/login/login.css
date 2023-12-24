@@ -145,9 +145,6 @@
   }
 }
 
-@media (min-width: 1441px) {
-}
-
 @media (min-width: 1025px) and (max-width: 1440px) {
   .login__form {
     width: 45%;

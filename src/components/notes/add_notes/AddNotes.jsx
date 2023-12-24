@@ -3,6 +3,7 @@ import plus from "../../../assets/images/plus.svg";
 import "./addnotes.css";
 import ModalContainer from "../../../base/modal/ModalContainer";
 import Editor from "../../editor/Editor";
+import { isEmpty } from "lodash";
 
 const AddNotes = ({
   isModalOpen,
@@ -15,10 +16,12 @@ const AddNotes = ({
   setContent,
   onSubmit,
 }) => {
+  const isDisabled = isEmpty(title);
+
   return (
     <>
-      <div className="addnotes__container" onClick={() => showModal()}>
-        <img src={plus} alt="plus" />
+      <div className='addnotes__container'>
+        <img onClick={() => showModal()} src={plus} alt='plus' />
         <span>Add Notes</span>
       </div>
       {isModalOpen && (
@@ -27,6 +30,7 @@ const AddNotes = ({
           showModal={showModal}
           handleOk={handleOk}
           handleCancel={handleCancel}
+          isDisabled={isDisabled}
         >
           <Editor
             title={title}

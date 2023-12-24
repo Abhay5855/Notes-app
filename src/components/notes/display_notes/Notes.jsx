@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from "react";
 import AddNotesContainer from "../add_notes/AddNotesContainer";
 import "./notes.css";
 import Bricks from "bricks.js";
-import { getNotes } from "../../../api/api";
 const Notes = ({ notes }) => {
   const mainContainerRef = useRef(null);
   const noteElRefs = useRef([]);

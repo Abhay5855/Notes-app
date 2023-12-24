@@ -27,10 +27,9 @@ const NotesContainer = () => {
     fetchNotes();
   }, [userId]);
 
- 
   return (
     <>
-      <Notes notes={notes}/>
+      <Notes notes={notes} />
     </>
   );
 };
