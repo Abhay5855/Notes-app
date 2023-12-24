@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Notes from "./Notes";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteSelected, fetchNotes } from "../../../redux/slice/notesSlice";
+import { PinNotes } from "../../../api/api";
 
 const NotesContainer = () => {
   const userId = useSelector((state) => state.auth.userData);
@@ -35,14 +36,16 @@ const NotesContainer = () => {
   }, [id]);
 
   //pin-unpin notes
-  const handlePinnedNotes = () => {
+  const handlePinnedNotes = async (noteId) => {
     try {
       setIsPinned(!isPinned);
+      await PinNotes(noteId);
     } catch (err) {
       console.log(err);
     }
   };
 
+  //delete notes
   const handleDelete = (noteId) => {
     try {
       dispatch(deleteSelected({ userId: id, noteId }));

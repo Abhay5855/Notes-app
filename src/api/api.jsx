@@ -28,3 +28,11 @@ export const deleteNotes = async (userId, id) => {
     "DELETE"
   );
 };
+
+export const PinNotes = async (id) => {
+  return await makeAPIRequest(`${BASE_URL}/notes/${id}/pin`, "PATCH");
+};
+
+export const UnPinNotes = async (id) => {
+  return await makeAPIRequest(`${BASE_URL}/notes/${id}/unpin`, "PATCH");
+};

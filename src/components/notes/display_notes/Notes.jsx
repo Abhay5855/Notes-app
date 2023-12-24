@@ -73,7 +73,7 @@ const Notes = ({
                   >
                     <div className='display__notes__title'>
                       <div className='notes__title'>{item?.title}</div>
-                      <div onClick={() => handlePinnedNotes()}>
+                      <div onClick={() => handlePinnedNotes(item?._id)}>
                         {isPinned ? (
                           <img src={pin} alt='pin' />
                         ) : (
