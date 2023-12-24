@@ -10,8 +10,6 @@ const AddNotesContainer = () => {
 
   const loggedInUser = useSelector((state) => state.auth.userData);
 
-  console.log(loggedInUser, "loggedIn user");
-
   const [userDetails, setUserDetails] = useState({});
 
   useEffect(() => {

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Login from "./Login";
 import { isEmpty } from "lodash";
 import { isvalidEmail } from "../../../helpers/helper";
@@ -6,6 +6,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { Signin } from "../../../api/api";
 import { login } from "../../../redux/slice/authSlice";
 import { useDispatch } from "react-redux";
+import ToastPortal from "../../../base/toast/ToastPortal";
 
 const LoginContainer = () => {
   const [formData, setFormData] = useState({
@@ -18,6 +19,12 @@ const LoginContainer = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { state } = useLocation();
+
+  const toastRef = useRef();
+
+  const addToast = () => {
+    toastRef.current.addMessage({ mode: "success", message: "Success" });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -40,6 +47,7 @@ const LoginContainer = () => {
       localStorage.setItem("access_token", JSON.stringify(token));
       dispatch(login(data));
       navigate(state?.path || "/home");
+      addToast();
     } catch (err) {
       setFormData({
         email: "",
@@ -85,6 +93,7 @@ const LoginContainer = () => {
         isInvalidMessage={isInvalidMessage}
         validated={validated}
       />
+      <ToastPortal ref={toastRef} />
     </div>
   );
 };
