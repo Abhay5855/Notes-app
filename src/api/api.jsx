@@ -21,3 +21,10 @@ export const getNotes = async (id) => {
 export const logoutUser = async () => {
   return await makeAPIRequest(`${BASE_URL}/logout`, "POST");
 };
+
+export const deleteNotes = async (userId, id) => {
+  return await makeAPIRequest(
+    `${BASE_URL}/notes/${id}/${userId}/delete`,
+    "DELETE"
+  );
+};

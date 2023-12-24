@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { getNotes } from "../../api/api";
+import { getNotes, deleteNotes } from "../../api/api";
 
 export const fetchNotes = createAsyncThunk(
   "note/fetchNotes",
@@ -7,6 +7,15 @@ export const fetchNotes = createAsyncThunk(
     const response = await getNotes(userId);
 
     return response;
+  }
+);
+
+export const deleteSelected = createAsyncThunk(
+  "note/deleteNotes",
+  async ({ userId, noteId }) => {
+    await deleteNotes(userId, noteId);
+
+    return noteId;
   }
 );
 
@@ -31,6 +40,17 @@ export const noteSlice = createSlice({
     });
 
     builder.addCase(fetchNotes.rejected, (state) => {
+      state.isLoading = false;
+    });
+    builder.addCase(deleteSelected.pending, (state) => {
+      state.isLoading = true;
+    });
+
+    builder.addCase(deleteSelected.fulfilled, (state) => {
+      state.isLoading = false;
+    });
+
+    builder.addCase(deleteSelected.rejected, (state) => {
       state.isLoading = false;
     });
   },

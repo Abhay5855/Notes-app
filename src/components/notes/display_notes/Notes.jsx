@@ -5,7 +5,13 @@ import Bricks from "bricks.js";
 import pin from "../../../assets/images/pin.svg";
 import Loader from "../../../base/loader/Loader";
 
-const Notes = ({ notes, handlePinnedNotes, isPinned, isLoading }) => {
+const Notes = ({
+  notes,
+  handlePinnedNotes,
+  isPinned,
+  isLoading,
+  handleDelete,
+}) => {
   const mainContainerRef = useRef(null);
   const noteElRefs = useRef([]);
 
@@ -86,7 +92,12 @@ const Notes = ({ notes, handlePinnedNotes, isPinned, isLoading }) => {
                     </div>
 
                     <div className='display__notes__icons'>
-                      <span class='material-symbols-outlined'>delete</span>
+                      <span
+                        onClick={() => handleDelete(item?._id)}
+                        class='material-symbols-outlined'
+                      >
+                        delete
+                      </span>
                       <span class='material-symbols-outlined'>archive</span>
                       <span class='material-symbols-outlined'>palette</span>
                       <span class='material-symbols-outlined'>edit</span>
