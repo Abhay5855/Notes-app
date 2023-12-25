@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Notes from "./Notes";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteSelected, fetchNotes } from "../../../redux/slice/notesSlice";
-import { PinNotes } from "../../../api/api";
+import { PinNotes, UnPinNotes } from "../../../api/api";
 
 const NotesContainer = () => {
   const userId = useSelector((state) => state.auth.userData);
@@ -13,7 +13,6 @@ const NotesContainer = () => {
 
   const [id, setId] = useState("");
   const [notes, setNotes] = useState([]);
-  const [isPinned, setIsPinned] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -25,7 +24,6 @@ const NotesContainer = () => {
   }, [notesData, notes]);
 
   //getnotes
-  console.log(id);
 
   const initData = (id) => {
     dispatch(fetchNotes(id));
@@ -39,8 +37,17 @@ const NotesContainer = () => {
   //pin-unpin notes
   const handlePinnedNotes = async (noteId) => {
     try {
-      setIsPinned(!isPinned);
       await PinNotes(noteId);
+      initData(id);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleUnPinnedNotes = async (noteId) => {
+    try {
+      await UnPinNotes(noteId);
+      initData(id);
     } catch (err) {
       console.log(err);
     }
@@ -61,9 +68,9 @@ const NotesContainer = () => {
       <Notes
         isLoading={isLoading}
         notes={notes}
-        isPinned={isPinned}
         handlePinnedNotes={handlePinnedNotes}
         handleDelete={handleDelete}
+        handleUnPinnedNotes={handleUnPinnedNotes}
       />
     </>
   );

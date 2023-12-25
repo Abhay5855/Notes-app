@@ -8,9 +8,9 @@ import Loader from "../../../base/loader/Loader";
 const Notes = ({
   notes,
   handlePinnedNotes,
-  isPinned,
   isLoading,
   handleDelete,
+  handleUnPinnedNotes,
 }) => {
   const mainContainerRef = useRef(null);
   const noteElRefs = useRef([]);
@@ -73,11 +73,18 @@ const Notes = ({
                   >
                     <div className='display__notes__title'>
                       <div className='notes__title'>{item?.title}</div>
-                      <div onClick={() => handlePinnedNotes(item?._id)}>
-                        {isPinned ? (
-                          <img src={pin} alt='pin' />
+                      <div>
+                        {item?.isPinned ? (
+                          <img
+                            onClick={() => handleUnPinnedNotes(item?._id)}
+                            src={pin}
+                            alt='pin'
+                          />
                         ) : (
-                          <span class='material-symbols-outlined'>
+                          <span
+                            onClick={() => handlePinnedNotes(item?._id)}
+                            class='material-symbols-outlined'
+                          >
                             push_pin
                           </span>
                         )}
