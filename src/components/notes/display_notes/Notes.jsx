@@ -11,6 +11,7 @@ const Notes = ({
   isLoading,
   handleDelete,
   handleUnPinnedNotes,
+  handleCopy,
 }) => {
   const mainContainerRef = useRef(null);
   const noteElRefs = useRef([]);
@@ -108,7 +109,10 @@ const Notes = ({
                       <span class='material-symbols-outlined'>archive</span>
                       <span class='material-symbols-outlined'>palette</span>
                       <span class='material-symbols-outlined'>edit</span>
-                      <span class='material-symbols-outlined'>
+                      <span
+                        onClick={() => handleCopy(item?.title, item?.content)}
+                        class='material-symbols-outlined'
+                      >
                         content_copy
                       </span>
                     </div>

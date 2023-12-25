@@ -3,6 +3,10 @@ import Notes from "./Notes";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteSelected, fetchNotes } from "../../../redux/slice/notesSlice";
 import { PinNotes, UnPinNotes } from "../../../api/api";
+import {
+  convertHtmlToPlainText,
+  copyTextToClipboard,
+} from "../../../helpers/helper";
 
 const NotesContainer = () => {
   const userId = useSelector((state) => state.auth.userData);
@@ -63,6 +67,16 @@ const NotesContainer = () => {
     }
   };
 
+  //handle copy
+
+  const handleCopy = (title, content) => {
+    try {
+      const convertedText = convertHtmlToPlainText(content);
+      const textToCopy = `${title}\n${convertedText}`;
+      copyTextToClipboard(textToCopy);
+    } catch (err) {}
+  };
+
   return (
     <>
       <Notes
@@ -71,6 +85,7 @@ const NotesContainer = () => {
         handlePinnedNotes={handlePinnedNotes}
         handleDelete={handleDelete}
         handleUnPinnedNotes={handleUnPinnedNotes}
+        handleCopy={handleCopy}
       />
     </>
   );
