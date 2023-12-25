@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Notes from "./Notes";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteSelected, fetchNotes } from "../../../redux/slice/notesSlice";
-import { PinNotes, UnPinNotes } from "../../../api/api";
+import { PinNotes, UnPinNotes, changeColor } from "../../../api/api";
 import {
   convertHtmlToPlainText,
   copyTextToClipboard,
@@ -18,6 +18,7 @@ const NotesContainer = () => {
   const [id, setId] = useState("");
   const [notes, setNotes] = useState([]);
   const dispatch = useDispatch();
+  const [openPalette, setOpenPalette] = useState({});
 
   useEffect(() => {
     setId(userId._id);
@@ -28,7 +29,6 @@ const NotesContainer = () => {
   }, [notesData, notes]);
 
   //getnotes
-
   const initData = (id) => {
     dispatch(fetchNotes(id));
   };
@@ -48,6 +48,7 @@ const NotesContainer = () => {
     }
   };
 
+  //Unpin the notes
   const handleUnPinnedNotes = async (noteId) => {
     try {
       await UnPinNotes(noteId);
@@ -68,13 +69,28 @@ const NotesContainer = () => {
   };
 
   //handle copy
-
   const handleCopy = (title, content) => {
     try {
       const convertedText = convertHtmlToPlainText(content);
       const textToCopy = `${title}\n${convertedText}`;
       copyTextToClipboard(textToCopy);
     } catch (err) {}
+  };
+
+  //Chnage the color
+  const handleNoteColor = async (noteId, data) => {
+    try {
+      await changeColor(noteId, data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleOpenNote = (noteId) => {
+    setOpenPalette((prev) => ({
+      ...prev,
+      [noteId]: !prev[noteId],
+    }));
   };
 
   return (
@@ -86,6 +102,9 @@ const NotesContainer = () => {
         handleDelete={handleDelete}
         handleUnPinnedNotes={handleUnPinnedNotes}
         handleCopy={handleCopy}
+        handleNoteColor={handleNoteColor}
+        handleOpenNote={handleOpenNote}
+        openPalette={openPalette}
       />
     </>
   );

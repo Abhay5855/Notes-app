@@ -4,6 +4,7 @@ import "./notes.css";
 import Bricks from "bricks.js";
 import pin from "../../../assets/images/pin.svg";
 import Loader from "../../../base/loader/Loader";
+import ColorPalette from "../../../base/color_palette/ColorPalette";
 
 const Notes = ({
   notes,
@@ -12,6 +13,9 @@ const Notes = ({
   handleDelete,
   handleUnPinnedNotes,
   handleCopy,
+  handleNoteColor,
+  handleOpenNote,
+  openPalette,
 }) => {
   const mainContainerRef = useRef(null);
   const noteElRefs = useRef([]);
@@ -51,6 +55,8 @@ const Notes = ({
       window.removeEventListener("resize", buildMasonry);
     };
   }, [notes]);
+
+  console.log(openPalette, "openPalette");
 
   return (
     <>
@@ -107,7 +113,12 @@ const Notes = ({
                         delete
                       </span>
                       <span class='material-symbols-outlined'>archive</span>
-                      <span class='material-symbols-outlined'>palette</span>
+                      <span
+                        onClick={() => handleOpenNote(item?._id)}
+                        class='material-symbols-outlined'
+                      >
+                        palette
+                      </span>
                       <span class='material-symbols-outlined'>edit</span>
                       <span
                         onClick={() => handleCopy(item?.title, item?.content)}
@@ -117,6 +128,8 @@ const Notes = ({
                       </span>
                     </div>
                   </div>
+
+                  {openPalette[item?._id] && <ColorPalette />}
                 </div>
               ))}
             </>

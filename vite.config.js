@@ -10,4 +10,9 @@ export default defineConfig({
       rewrite: (path) => path.replace(/^\/api/, ""),
     },
   },
+  server: {
+    fs: {
+      allowSymlinks: true,
+    },
+  },
 });
