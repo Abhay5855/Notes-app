@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Notes from "./Notes";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteSelected, fetchNotes } from "../../../redux/slice/notesSlice";
@@ -7,6 +7,8 @@ import {
   convertHtmlToPlainText,
   copyTextToClipboard,
 } from "../../../helpers/helper";
+import ToastPortal from "../../../base/toast/ToastPortal";
+import { add } from "lodash";
 
 const NotesContainer = () => {
   const userId = useSelector((state) => state.auth.userData);
@@ -19,6 +21,15 @@ const NotesContainer = () => {
   const [notes, setNotes] = useState([]);
   const dispatch = useDispatch();
   const [openPalette, setOpenPalette] = useState({});
+
+  const toastRef = useRef();
+
+  const addToast = () => {
+    toastRef.current.addMessage({
+      mode: "success",
+      message: "Note deleted Successfully",
+    });
+  };
 
   useEffect(() => {
     setId(userId._id);
@@ -62,6 +73,7 @@ const NotesContainer = () => {
   const handleDelete = (noteId) => {
     try {
       dispatch(deleteSelected({ userId: id, noteId }));
+      addToast();
       initData(id);
     } catch (err) {
       console.log(err);
@@ -99,6 +111,7 @@ const NotesContainer = () => {
         userId={id}
         setOpenPalette={setOpenPalette}
       />
+      <ToastPortal ref={toastRef} />
     </>
   );
 };
