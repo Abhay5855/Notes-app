@@ -13,9 +13,11 @@ const Notes = ({
   handleDelete,
   handleUnPinnedNotes,
   handleCopy,
-  handleNoteColor,
   handleOpenNote,
   openPalette,
+  initData,
+  userId,
+  setOpenPalette,
 }) => {
   const mainContainerRef = useRef(null);
   const noteElRefs = useRef([]);
@@ -56,8 +58,6 @@ const Notes = ({
     };
   }, [notes]);
 
-  console.log(openPalette, "openPalette");
-
   return (
     <>
       <div className='display__notes__container'>
@@ -72,6 +72,7 @@ const Notes = ({
                 <div
                   ref={(el) => (noteElRefs.current[idx] = el)}
                   key={item?._id}
+                  style={{ backgroundColor: `${item?.color}` }}
                   className='display__notes'
                 >
                   <div
@@ -129,7 +130,15 @@ const Notes = ({
                     </div>
                   </div>
 
-                  {openPalette[item?._id] && <ColorPalette />}
+                  {openPalette[item?._id] && (
+                    <ColorPalette
+                      noteId={item?._id}
+                      selectedColor={item?.color}
+                      initData={initData}
+                      userId={userId}
+                      setOpenPalette={setOpenPalette}
+                    />
+                  )}
                 </div>
               ))}
             </>

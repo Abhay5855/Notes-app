@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Notes from "./Notes";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteSelected, fetchNotes } from "../../../redux/slice/notesSlice";
-import { PinNotes, UnPinNotes, changeColor } from "../../../api/api";
+import { PinNotes, UnPinNotes } from "../../../api/api";
 import {
   convertHtmlToPlainText,
   copyTextToClipboard,
@@ -77,15 +77,6 @@ const NotesContainer = () => {
     } catch (err) {}
   };
 
-  //Chnage the color
-  const handleNoteColor = async (noteId, data) => {
-    try {
-      await changeColor(noteId, data);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
   const handleOpenNote = (noteId) => {
     setOpenPalette((prev) => ({
       ...prev,
@@ -102,9 +93,11 @@ const NotesContainer = () => {
         handleDelete={handleDelete}
         handleUnPinnedNotes={handleUnPinnedNotes}
         handleCopy={handleCopy}
-        handleNoteColor={handleNoteColor}
         handleOpenNote={handleOpenNote}
         openPalette={openPalette}
+        initData={initData}
+        userId={id}
+        setOpenPalette={setOpenPalette}
       />
     </>
   );

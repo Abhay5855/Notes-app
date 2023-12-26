@@ -1,44 +1,78 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import "./colorPalette.css";
+import { changeColor } from "../../api/api";
 
-const ColorPalette = () => {
-  const [colors, setColors] = useState([
+const ColorPalette = ({
+  noteId,
+  initData,
+  userId,
+  setOpenPalette,
+  selectedColor,
+}) => {
+  const colorRef = useRef(null);
+  const [isDivOpen, setIsDivOpen] = useState(true);
+  const colors = [
     {
-      id: Date.now(),
+      id: 1,
       color: "#77172e",
     },
     {
-      id: Date.now(),
+      id: 2,
       color: "#692b17",
     },
     {
-      id: Date.now(),
+      id: 3,
       color: "#7c4a03",
     },
     {
-      id: Date.now(),
+      id: 4,
       color: "#264d3b",
     },
     {
-      id: Date.now(),
+      id: 5,
       color: "#0c625d",
     },
     {
-      id: Date.now(),
+      id: 6,
       color: "#4b443a",
     },
-  ]);
+  ];
+
+  const handleNoteColor = async (selectedColor) => {
+    try {
+      const data = {
+        color: selectedColor,
+      };
+      await changeColor(noteId, data);
+      setOpenPalette({});
+      initData(userId);
+    } catch (err) {
+      console(err);
+      setOpenPalette({});
+    }
+  };
 
   return (
     <>
-      <div className='color__picker__container'>
+      <div className='color__picker__container' ref={colorRef}>
         <div className='color__picker'>
           {colors.map((item) => (
-            <div
-              key={item.id}
-              className='color__pick'
-              style={{ backgroundColor: `${item.color}` }}
-            ></div>
+            <>
+              <div
+                key={item.id}
+                className='color__pick'
+                style={{
+                  backgroundColor: `${item.color}`,
+                  cursor:
+                    item?.color === selectedColor ? "not-allowed" : "pointer",
+                }}
+                onClick={
+                  item.color === selectedColor
+                    ? ""
+                    : () => handleNoteColor(item?.color)
+                }
+              ></div>
+            </>
           ))}
         </div>
       </div>

@@ -37,6 +37,6 @@ export const UnPinNotes = async (id) => {
   return await makeAPIRequest(`${BASE_URL}/notes/${id}/unpin`, "PATCH");
 };
 
-export const changeColor = async (id) => {
-  return await makeAPIRequest(`${BASE_URL}/notes/${id}/color`, "PATCH");
+export const changeColor = async (id, data) => {
+  return await makeAPIRequest(`${BASE_URL}/notes/${id}/color`, "PATCH", data);
 };
