@@ -18,6 +18,7 @@ const Notes = ({
   initData,
   userId,
   setOpenPalette,
+  handleAddToFavourites,
 }) => {
   const mainContainerRef = useRef(null);
   const noteElRefs = useRef([]);
@@ -113,7 +114,12 @@ const Notes = ({
                       >
                         delete
                       </span>
-                      <span class='material-symbols-outlined'>archive</span>
+                      <span
+                        onClick={() => handleAddToFavourites(item?._id)}
+                        class='material-symbols-outlined'
+                      >
+                        favorite
+                      </span>
                       <span
                         onClick={() => handleOpenNote(item?._id)}
                         class='material-symbols-outlined'

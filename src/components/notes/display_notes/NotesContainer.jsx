@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Notes from "./Notes";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteSelected, fetchNotes } from "../../../redux/slice/notesSlice";
-import { PinNotes, UnPinNotes } from "../../../api/api";
+import { PinNotes, UnPinNotes, addToFavourite } from "../../../api/api";
 import {
   convertHtmlToPlainText,
   copyTextToClipboard,
@@ -103,6 +103,18 @@ const NotesContainer = () => {
     }));
   };
 
+  //add to favourites
+  const handleAddToFavourites = async (noteId) => {
+    try {
+      await addToFavourite(noteId);
+      initData(id);
+      addToast("success", "Added to favourites");
+    } catch (err) {
+      console.log(err);
+      addToast("success", "Failed to add it to favourite");
+    }
+  };
+
   return (
     <>
       <Notes
@@ -117,6 +129,7 @@ const NotesContainer = () => {
         initData={initData}
         userId={id}
         setOpenPalette={setOpenPalette}
+        handleAddToFavourites={handleAddToFavourites}
       />
       <ToastPortal ref={toastRef} />
     </>
