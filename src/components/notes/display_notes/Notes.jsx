@@ -5,7 +5,7 @@ import Bricks from "bricks.js";
 import pin from "../../../assets/images/pin.svg";
 import Loader from "../../../base/loader/Loader";
 import ColorPalette from "../../../base/color_palette/ColorPalette";
-
+import heart from "../../../assets/images/heart.svg";
 const Notes = ({
   notes,
   handlePinnedNotes,
@@ -19,6 +19,7 @@ const Notes = ({
   userId,
   setOpenPalette,
   handleAddToFavourites,
+  handleRemoveFromFavourites,
 }) => {
   const mainContainerRef = useRef(null);
   const noteElRefs = useRef([]);
@@ -114,12 +115,21 @@ const Notes = ({
                       >
                         delete
                       </span>
-                      <span
-                        onClick={() => handleAddToFavourites(item?._id)}
-                        class='material-symbols-outlined'
-                      >
-                        favorite
-                      </span>
+                      {item?.liked ? (
+                        <img
+                          src={heart}
+                          alt='heart'
+                          onClick={() => handleRemoveFromFavourites(item?._id)}
+                        />
+                      ) : (
+                        <span
+                          onClick={() => handleAddToFavourites(item?._id)}
+                          class='material-symbols-outlined'
+                        >
+                          favorite
+                        </span>
+                      )}
+
                       <span
                         onClick={() => handleOpenNote(item?._id)}
                         class='material-symbols-outlined'

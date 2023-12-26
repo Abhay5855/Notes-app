@@ -114,6 +114,16 @@ const NotesContainer = () => {
       addToast("success", "Failed to add it to favourite");
     }
   };
+  const handleRemoveFromFavourites = async (noteId) => {
+    try {
+      await addToFavourite(noteId);
+      initData(id);
+      addToast("success", "Removed from favourites");
+    } catch (err) {
+      console.log(err);
+      addToast("success", "Failed to remove from favourite");
+    }
+  };
 
   return (
     <>
@@ -130,6 +140,7 @@ const NotesContainer = () => {
         userId={id}
         setOpenPalette={setOpenPalette}
         handleAddToFavourites={handleAddToFavourites}
+        handleRemoveFromFavourites={handleRemoveFromFavourites}
       />
       <ToastPortal ref={toastRef} />
     </>

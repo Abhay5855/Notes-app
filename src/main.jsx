@@ -1,5 +1,5 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
+import React from "react";
+import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import ErrorPage from "./components/404/error-page.jsx";
@@ -12,6 +12,7 @@ import { store } from "./redux/store";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistStore } from "redux-persist";
+import AddFavouriteContainer from "./components/notes/favourites/AddFavouriteContainer.jsx";
 
 let persistor = persistStore(store);
 
@@ -44,8 +45,8 @@ const router = createBrowserRouter([
         element: <h1>Thrash</h1>,
       },
       {
-        path: "/archive",
-        element: <h1>Archieve</h1>,
+        path: "/favourite",
+        element: <AddFavouriteContainer />,
       },
       {
         path: "/tags",
