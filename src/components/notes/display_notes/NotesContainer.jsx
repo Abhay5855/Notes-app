@@ -8,7 +8,6 @@ import {
   copyTextToClipboard,
 } from "../../../helpers/helper";
 import ToastPortal from "../../../base/toast/ToastPortal";
-import { add } from "lodash";
 
 const NotesContainer = () => {
   const userId = useSelector((state) => state.auth.userData);
@@ -24,10 +23,10 @@ const NotesContainer = () => {
 
   const toastRef = useRef();
 
-  const addToast = () => {
+  const addToast = (mode, message) => {
     toastRef.current.addMessage({
-      mode: "success",
-      message: "Note deleted Successfully",
+      mode,
+      message,
     });
   };
 
@@ -54,8 +53,10 @@ const NotesContainer = () => {
     try {
       await PinNotes(noteId);
       initData(id);
+      addToast("success", "Pinned note");
     } catch (err) {
       console.log(err);
+      addToast("success", "Failed to pin the note");
     }
   };
 
@@ -64,8 +65,10 @@ const NotesContainer = () => {
     try {
       await UnPinNotes(noteId);
       initData(id);
+      addToast("success", "Unpinned note");
     } catch (err) {
       console.log(err);
+      addToast("error", "Failed to unpin the note");
     }
   };
 
@@ -73,10 +76,11 @@ const NotesContainer = () => {
   const handleDelete = (noteId) => {
     try {
       dispatch(deleteSelected({ userId: id, noteId }));
-      addToast();
+      addToast("success", "Notes deleted successfully");
       initData(id);
     } catch (err) {
       console.log(err);
+      addToast("error", "Unable to delete the notes");
     }
   };
 
@@ -86,7 +90,10 @@ const NotesContainer = () => {
       const convertedText = convertHtmlToPlainText(content);
       const textToCopy = `${title}\n${convertedText}`;
       copyTextToClipboard(textToCopy);
-    } catch (err) {}
+      addToast("success", "Copied to clipboard");
+    } catch (err) {
+      addToast("error", "Failed to copy");
+    }
   };
 
   const handleOpenNote = (noteId) => {

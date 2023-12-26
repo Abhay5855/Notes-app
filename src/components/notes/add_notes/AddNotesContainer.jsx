@@ -43,11 +43,11 @@ const AddNotesContainer = () => {
         title,
         content,
       };
+      handleCancel();
       await CreateNotes(data, id);
       dispatch(fetchNotes(id));
       setTitle("");
       setContent("");
-      handleCancel();
       setLoading(false);
     } catch (err) {
       console.log(err);

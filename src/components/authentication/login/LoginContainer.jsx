@@ -24,7 +24,10 @@ const LoginContainer = () => {
   const toastRef = useRef();
 
   const addToast = () => {
-    toastRef.current.addMessage({ mode: "success", message: "Success" });
+    toastRef.current.addMessage({
+      mode: "success",
+      message: "Login Successful",
+    });
   };
 
   const handleSubmit = async (e) => {
@@ -48,7 +51,7 @@ const LoginContainer = () => {
 
       localStorage.setItem("access_token", JSON.stringify(token));
       dispatch(login(data));
-      // navigate(state?.path || "/home");
+      navigate(state?.path || "/home");
       setLoading(false);
       addToast();
     } catch (err) {

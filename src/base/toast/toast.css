@@ -9,14 +9,16 @@
   min-height: 50px;
   display: flex;
   flex-direction: column;
-  position: relative;
+  position: fixed;
   transition: 0.2s;
   animation: fadeIn 0.75s;
   cursor: default;
   opacity: 1;
   align-items: center;
   justify-content: center;
-  z-index: 40001;
+  z-index: 4000;
+  top: 15%;
+  right: 5%;
 }
 
 .toast:hover {

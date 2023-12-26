@@ -2,13 +2,6 @@ import React, { useMemo } from "react";
 import "./toast.css";
 
 const Toast = ({ mode, message, onClose }) => {
-  console.log(
-    {
-      mode,
-      message,
-    },
-    "In the toast"
-  );
   const classes = useMemo(() => {
     let baseClass = "toast";
 
