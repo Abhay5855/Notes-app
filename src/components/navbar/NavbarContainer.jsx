@@ -7,6 +7,7 @@ import { logout } from "../../redux/slice/authSlice";
 import { logoutUser } from "../../api/api";
 import { useDispatch } from "react-redux";
 import { PURGE } from "redux-persist";
+import { setLanguage } from "../../redux/slice/languageSlice";
 
 const NavbarContainer = () => {
   const loggedInUser = useSelector((state) => state.auth.userData);
@@ -40,8 +41,8 @@ const NavbarContainer = () => {
   }, [loggedInUser]);
 
   const handleSelected = (value) => {
-    console.log(value);
     try {
+      dispatch(setLanguage(value));
       setIsOpen(!isOpen);
     } catch (err) {}
   };

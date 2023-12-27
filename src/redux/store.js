@@ -12,6 +12,7 @@ import {
 import storage from "redux-persist/lib/storage";
 import { combineReducers } from "@reduxjs/toolkit";
 import { noteSliceReducer } from "./slice/notesSlice";
+import { languageSliceReducer } from "./slice/languageSlice";
 
 const persistConfig = {
   key: "persist-key",
@@ -22,6 +23,7 @@ const persistConfig = {
 const rootReducer = combineReducers({
   auth: authSliceReducer,
   note: noteSliceReducer,
+  language: languageSliceReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
