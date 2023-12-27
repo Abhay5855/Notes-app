@@ -13,8 +13,24 @@ import ProtectedRoute from "./routes/ProtectedRoute";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistStore } from "redux-persist";
 import DisplayFavouriteContainer from "./components/notes/favourites/DisplayFavouriteContainer.jsx";
+import { IntlProvider } from "react-intl";
+import French from "../translate/fr.json";
+import English from "../translate/en.json";
+import Chinese from "../translate/ch.json";
 
 let persistor = persistStore(store);
+
+const locale = navigator.language;
+let lang;
+if (locale === "en") {
+  lang = English;
+} else {
+  if (locale === "fr") {
+    lang = French;
+  } else {
+    lang = Chinese;
+  }
+}
 
 // routings
 const router = createBrowserRouter([
@@ -58,10 +74,12 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <Provider store={store}>
-      <PersistGate persistor={persistor}>
-        <RouterProvider router={router} />
-      </PersistGate>
-    </Provider>
+    <IntlProvider locale={locale} messages={French}>
+      <Provider store={store}>
+        <PersistGate persistor={persistor}>
+          <RouterProvider router={router} />
+        </PersistGate>
+      </Provider>
+    </IntlProvider>
   </React.StrictMode>
 );

@@ -3,8 +3,15 @@ import "./navbar.css";
 import Search from "../../base/search/Search";
 import logo from "../../assets/images/icon.png";
 import { getInitials } from "../../helpers/helper";
+import Dropdown from "../../base/dropdown/Dropdown";
 
-const Navbar = ({ userDetails, onLogout }) => {
+const Navbar = ({
+  userDetails,
+  onLogout,
+  handleOpen,
+  isOpen,
+  handleSelected,
+}) => {
   return (
     <>
       <nav>
@@ -23,10 +30,9 @@ const Navbar = ({ userDetails, onLogout }) => {
               <span class='material-symbols-outlined'>settings</span>
             </div>
 
-            <div className='nav__list'>
-              <span class='material-symbols-outlined'>grid_view</span>
+            <div className='nav__language' onClick={handleOpen}>
+              <span class='material-symbols-outlined'>language</span>
             </div>
-
             <div className='nav__profile'>
               <span>
                 {getInitials(userDetails?.firstName, userDetails?.lastName)}
@@ -38,6 +44,7 @@ const Navbar = ({ userDetails, onLogout }) => {
             </div>
           </div>
         </div>
+        {isOpen && <Dropdown handleSelected={handleSelected} />}
       </nav>
     </>
   );

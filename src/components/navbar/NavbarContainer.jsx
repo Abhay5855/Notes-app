@@ -17,6 +17,12 @@ const NavbarContainer = () => {
 
   const navigate = useNavigate();
 
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleOpen = () => {
+    setIsOpen(!isOpen);
+  };
+
   const handleLogout = async () => {
     try {
       await logoutUser();
@@ -33,7 +39,22 @@ const NavbarContainer = () => {
     setUserDetails(loggedInUser);
   }, [loggedInUser]);
 
-  return <Navbar userDetails={userDetails} onLogout={handleLogout} />;
+  const handleSelected = (value) => {
+    console.log(value);
+    try {
+      setIsOpen(!isOpen);
+    } catch (err) {}
+  };
+
+  return (
+    <Navbar
+      userDetails={userDetails}
+      onLogout={handleLogout}
+      handleOpen={handleOpen}
+      isOpen={isOpen}
+      handleSelected={handleSelected}
+    />
+  );
 };
 
 export default NavbarContainer;

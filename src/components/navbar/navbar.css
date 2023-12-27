@@ -42,6 +42,11 @@ nav {
   cursor: pointer;
 }
 
+.nav__language > span {
+  color: #fff;
+  cursor: pointer;
+}
+
 .nav__logo > img {
   padding-right: 4px;
   width: 40px;

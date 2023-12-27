@@ -4,7 +4,7 @@ import Button from "../../../base/button/Button";
 import { NavLink } from "react-router-dom";
 import "./login.css";
 import logo from "../../../assets/images/icon.png";
-
+import { FormattedMessage } from "react-intl";
 const Login = ({
   onChange,
   onSubmit,
@@ -21,8 +21,15 @@ const Login = ({
         <div className='login__form'>
           <div className='login__heading'>
             <img src={logo} />
-            <h1>WhizNotes</h1>
-            <span>Remember everything important</span>
+            <h1>
+              <FormattedMessage id='app.title' defaultMessage='WeNotes' />
+            </h1>
+            <span>
+              <FormattedMessage
+                id='app.label'
+                defaultMessage='Remember everything important'
+              />
+            </span>
           </div>
 
           <form autoComplete='off' onSubmit={onSubmit}>

@@ -1,0 +1,30 @@
+.dropdown__container {
+  /* padding: 1em 0; */
+  background-color: #fff;
+  border: 0.5px solid #e6e6e6;
+  border-radius: 3px;
+  position: fixed;
+  top: 12%;
+  right: 14%;
+  z-index: 4000;
+  transition: 0.3s all;
+}
+
+.dropdown__items {
+  padding: 0.5em;
+  border-bottom: 0.5px solid #e6e6e6;
+  cursor: pointer;
+  text-transform: capitalize;
+  font-size: 0.8em;
+  font-weight: 400;
+}
+
+.dropdown__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em;
+}
+
+.dropdown__items > div:hover {
+  color: #fbbc04;
+}
