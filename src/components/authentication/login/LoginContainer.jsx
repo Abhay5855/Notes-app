@@ -51,9 +51,9 @@ const LoginContainer = () => {
 
       localStorage.setItem("access_token", JSON.stringify(token));
       dispatch(login(data));
-      navigate(state?.path || "/home");
-      setLoading(false);
       addToast();
+      setLoading(false);
+      navigate(state?.path || "/home");
     } catch (err) {
       setLoading(false);
       setFormData({
