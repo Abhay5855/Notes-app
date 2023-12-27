@@ -12,7 +12,7 @@ import { store } from "./redux/store";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistStore } from "redux-persist";
-import AddFavouriteContainer from "./components/notes/favourites/AddFavouriteContainer.jsx";
+import DisplayFavouriteContainer from "./components/notes/favourites/DisplayFavouriteContainer.jsx";
 
 let persistor = persistStore(store);
 
@@ -46,7 +46,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/favourite",
-        element: <AddFavouriteContainer />,
+        element: <DisplayFavouriteContainer />,
       },
       {
         path: "/tags",

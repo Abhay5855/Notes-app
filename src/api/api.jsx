@@ -44,3 +44,10 @@ export const UnPinNotes = async (id) => {
 export const changeColor = async (id, data) => {
   return await makeAPIRequest(`${BASE_URL}/notes/${id}/color`, "PATCH", data);
 };
+
+export const searchNotes = async (query) => {
+  return await makeAPIRequest(
+    `${BASE_URL}/notes/search?searchQuery=${query}`,
+    "GET"
+  );
+};

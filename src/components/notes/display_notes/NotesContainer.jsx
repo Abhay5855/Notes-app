@@ -14,6 +14,10 @@ const NotesContainer = () => {
 
   const notesData = useSelector((state) => state.note.notesData);
 
+  const searchedData = useSelector((state) => state.note.searchResults);
+
+  const searchQuery = useSelector((state) => state.note.searchQuery);
+
   const { isLoading } = useSelector((state) => state.note);
 
   const [id, setId] = useState("");
@@ -35,8 +39,12 @@ const NotesContainer = () => {
   }, [id, userId]);
 
   useEffect(() => {
-    setNotes(notesData);
-  }, [notesData, notes]);
+    if (searchQuery !== "") {
+      setNotes(searchedData);
+    } else {
+      setNotes(notesData);
+    }
+  }, [notesData, notes, searchedData]);
 
   //getnotes
   const initData = (id) => {

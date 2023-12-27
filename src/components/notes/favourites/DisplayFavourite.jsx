@@ -3,7 +3,7 @@ import "./favourite.css";
 import Bricks from "bricks.js";
 import Loader from "../../../base/loader/Loader";
 
-const AddFavourite = ({ notes, isLoading }) => {
+const DisplayFavourite = ({ notes, isLoading }) => {
   const mainContainerRef = useRef(null);
   const noteElRefs = useRef([]);
 
@@ -43,6 +43,8 @@ const AddFavourite = ({ notes, isLoading }) => {
     };
   }, [notes]);
 
+  console.log(notes, "notes");
+
   return (
     <>
       <div className='display__notes__container'>
@@ -51,9 +53,8 @@ const AddFavourite = ({ notes, isLoading }) => {
             <Loader />
           ) : (
             <>
-              {notes
-                .filter((item) => item?.liked === true)
-                .map((item, idx) => (
+              {notes?.length > 0 ? (
+                notes.map((item, idx) => (
                   <div
                     ref={(el) => (noteElRefs.current[idx] = el)}
                     key={item?._id}
@@ -71,12 +72,19 @@ const AddFavourite = ({ notes, isLoading }) => {
                       <div className='display__notes__content__container'>
                         <div
                           className='display__notes__content'
-                          dangerouslySetInnerHTML={{ __html: item?.content }}
+                          dangerouslySetInnerHTML={{
+                            __html: item?.content,
+                          }}
                         />
                       </div>
                     </div>
                   </div>
-                ))}
+                ))
+              ) : (
+                <div className='favourite__message'>
+                  Add to view liked Notes
+                </div>
+              )}
             </>
           )}
         </div>
@@ -85,4 +93,4 @@ const AddFavourite = ({ notes, isLoading }) => {
   );
 };
 
-export default AddFavourite;
+export default DisplayFavourite;

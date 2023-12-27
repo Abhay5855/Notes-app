@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import AddFavourite from "./AddFavourite";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchNotes } from "../../../redux/slice/notesSlice";
+import DisplayFavourite from "./DisplayFavourite";
 
-const AddFavouriteContainer = () => {
+const DisplayFavouriteContainer = () => {
   const [notes, setNotes] = useState([]);
   const [id, setId] = useState("");
   const dispatch = useDispatch();
@@ -19,7 +19,7 @@ const AddFavouriteContainer = () => {
   }, [id, userId]);
 
   useEffect(() => {
-    setNotes(notesData);
+    setNotes(notesData.filter((item) => item?.liked === true));
   }, [notesData, notes]);
 
   const initData = (id) => {
@@ -33,9 +33,9 @@ const AddFavouriteContainer = () => {
 
   return (
     <div>
-      <AddFavourite isLoading={isLoading} notes={notes} />
+      <DisplayFavourite isLoading={isLoading} notes={notes} />
     </div>
   );
 };
 
-export default AddFavouriteContainer;
+export default DisplayFavouriteContainer;

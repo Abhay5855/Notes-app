@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { getNotes, deleteNotes } from "../../api/api";
+import { getNotes, deleteNotes, searchNotes } from "../../api/api";
 
 export const fetchNotes = createAsyncThunk(
   "note/fetchNotes",
@@ -17,16 +17,31 @@ export const deleteSelected = createAsyncThunk(
   }
 );
 
+export const fetchSearchNotes = createAsyncThunk(
+  "note/searchNotes",
+  async (query) => {
+    const response = await searchNotes(query);
+
+    return response;
+  }
+);
+
 const initialState = {
   isLoading: false,
   notesData: null,
+  searchQuery: "",
+  searchResults: null,
 };
 
 export const noteSlice = createSlice({
   name: "note",
   initialState,
 
-  reducers: {},
+  reducers: {
+    setSearchQuery: (state, action) => {
+      state.searchQuery = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(fetchNotes.pending, (state) => {
       state.isLoading = true;
@@ -51,7 +66,26 @@ export const noteSlice = createSlice({
     builder.addCase(deleteSelected.rejected, (state) => {
       state.isLoading = false;
     });
+    builder.addCase(fetchSearchNotes.pending, (state) => {
+      state.isLoading = true;
+    });
+
+    builder.addCase(fetchSearchNotes.fulfilled, (state, action) => {
+      state.isLoading = false;
+
+      if (state.searchQuery === "") {
+        state.searchResults = null;
+      } else {
+        state.searchResults = action.payload;
+      }
+    });
+
+    builder.addCase(fetchSearchNotes.rejected, (state) => {
+      state.isLoading = false;
+    });
   },
 });
+
+export const { setSearchQuery } = noteSlice.actions;
 
 export const noteSliceReducer = noteSlice.reducer;
