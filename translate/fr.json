@@ -1,4 +1,15 @@
 {
-  "app.title": "Notes importantes",
-  "app.label": "Rappelez-vous de tout ce qui est important"
+  "app.title": "We Notes",
+  "app.label": "Rappelez-vous de tout ce qui est important",
+  "app.nav.title": "Garder",
+  "app.nav.logout": "Se déconnecter",
+  "app.nav.searchplaceholder": "rechercher",
+  "app.nav.initial": "{initial}",
+  "app.sidebar.notes": "notes",
+  "app.sidebar.favourite": "favoris",
+  "app.sidebar.thrash": "corbeille",
+  "app.sidebar.tags": "étiquettes",
+  "app.main.addnotes": "ajouter des notes",
+  "app.main.addnotes.btn": "soumettre",
+  "app.search.placeholder": "Rechercher"
 }

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { setSearchQuery, fetchSearchNotes } from "../../redux/slice/notesSlice";
 import "./search.css";
+import { useIntl } from "react-intl";
 
 const Search = () => {
   const [searchText, setSearchText] = useState("");
@@ -17,6 +18,9 @@ const Search = () => {
     // // Trigger search results fetch
     dispatch(fetchSearchNotes(query));
   };
+  const intl = useIntl();
+
+  const placeholder = intl.formatMessage({ id: "app.search.placeholder" });
 
   return (
     <div className='search__container'>
@@ -24,7 +28,7 @@ const Search = () => {
       <input
         className='search__input'
         type='search'
-        placeholder='Search'
+        placeholder={placeholder}
         value={searchText}
         onChange={(e) => handleSearchChange(e)}
       />

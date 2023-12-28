@@ -1,4 +1,17 @@
 {
   "app.title": "We Notes",
-  "app.label": "Remember everything important"
+  "app.label": "Remember everything important",
+  "app.nav.title": "Keep",
+  "app.nav.logout": "Logout",
+  "app.nav.searchplaceholder": "search",
+  "app.nav.initial": "{{initial}}",
+  "app.sidebar.notes": "notes",
+  "app.sidebar.favourite": "favourite",
+  "app.sidebar.thrash": "thrash",
+  "app.sidebar.tags": "tags",
+  "app.main.addnotes": "add notes",
+  "app.main.addnotes.btn": "submit",
+  "app.search.placeholder": "Search",
+  "app.modal.title": "Add notes",
+  "app.modal.placeholder": "Enter title"
 }

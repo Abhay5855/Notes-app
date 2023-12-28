@@ -1,3 +1,9 @@
+import English from "../../translate/en.json";
+import French from "../../translate/fr.json";
+import Chinese from "../../translate/ch.json";
+
+const locale = navigator.language;
+
 // Function to check for valid email
 export const isvalidEmail = (str) => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -12,7 +18,6 @@ export const isValidPassword = (str) => {
 };
 
 //function to extract the initials
-
 export const getInitials = (str, str1) => {
   const firstNameInitials = str ? str.charAt(0) : "";
   const lastNameInitials = str ? str1.charAt(0) : "";
@@ -23,7 +28,6 @@ export const getInitials = (str, str1) => {
 };
 
 //function copy to clipboard
-
 export const copyTextToClipboard = async (text) => {
   if ("clipboard" in navigator) {
     return await navigator.clipboard.writeText(text);
@@ -32,8 +36,24 @@ export const copyTextToClipboard = async (text) => {
   }
 };
 
+//convert html to string
 export const convertHtmlToPlainText = (html) => {
   const tempElement = document.createElement("div");
   tempElement.innerHTML = html;
   return tempElement.textContent || tempElement.innerText || "";
+};
+
+//handle locale
+
+export const handleLocale = (locale) => {
+  switch (locale) {
+    case "en":
+      return English;
+
+    case "fr":
+      return French;
+
+    case "ch":
+      return Chinese;
+  }
 };

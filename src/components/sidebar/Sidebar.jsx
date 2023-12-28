@@ -1,6 +1,7 @@
 import React from "react";
 import "./sidebar.css";
 import { NavLink } from "react-router-dom";
+import { FormattedMessage } from "react-intl";
 
 const Sidebar = () => {
   return (
@@ -11,7 +12,12 @@ const Sidebar = () => {
             <NavLink to='/home'>
               <div>
                 <span class='material-symbols-outlined'>description</span>
-                <h3 className='sidebar__labels'>Notes</h3>
+                <h3 className='sidebar__labels'>
+                  <FormattedMessage
+                    id='app.sidebar.notes'
+                    defaultMessage='notes'
+                  />
+                </h3>
               </div>
             </NavLink>
           </li>
@@ -19,7 +25,9 @@ const Sidebar = () => {
             <NavLink to='/favourite'>
               <div>
                 <span class='material-symbols-outlined'>favorite</span>
-                <h3 className='sidebar__labels'>Favourite</h3>
+                <h3 className='sidebar__labels'>
+                  <FormattedMessage id='app.sidebar.favourite' />
+                </h3>
               </div>
             </NavLink>
           </li>
@@ -27,7 +35,9 @@ const Sidebar = () => {
             <NavLink to='/thrash'>
               <div>
                 <span class='material-symbols-outlined'>delete</span>
-                <h3 className='sidebar__labels'>Thrash</h3>
+                <h3 className='sidebar__labels'>
+                  <FormattedMessage id='app.sidebar.thrash' />
+                </h3>
               </div>
             </NavLink>
           </li>
@@ -35,7 +45,9 @@ const Sidebar = () => {
             <NavLink to='/tags'>
               <div>
                 <span class='material-symbols-outlined'>sell</span>
-                <h3 className='sidebar__labels'>Tags</h3>
+                <h3 className='sidebar__labels'>
+                  <FormattedMessage id='app.sidebar.tags' />
+                </h3>
               </div>
             </NavLink>
           </li>

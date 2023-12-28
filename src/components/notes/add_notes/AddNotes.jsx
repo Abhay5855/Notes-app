@@ -4,6 +4,7 @@ import "./addnotes.css";
 import ModalContainer from "../../../base/modal/ModalContainer";
 import Editor from "../../editor/Editor";
 import { isEmpty } from "lodash";
+import { FormattedMessage } from "react-intl";
 
 const AddNotes = ({
   isModalOpen,
@@ -23,7 +24,9 @@ const AddNotes = ({
     <>
       <div className='addnotes__container'>
         <img onClick={() => showModal()} src={plus} alt='plus' />
-        <span>Add Notes</span>
+        <span>
+          <FormattedMessage id='app.main.addnotes' defaultMessage='add notes' />
+        </span>
       </div>
       {isModalOpen && (
         <ModalContainer

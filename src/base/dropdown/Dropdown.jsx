@@ -11,7 +11,7 @@ const Dropdown = ({ handleClose, handleSelected }) => {
             <div
               key={item?.id}
               className='dropdown__items'
-              onClick={() => handleSelected(item?.label)}
+              onClick={() => handleSelected(item?.value)}
             >
               <div>{item?.label}</div>
             </div>

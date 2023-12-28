@@ -1,3 +1,15 @@
 {
-  "app.title": "We Notes"
+  "app.title": "We Notes",
+  "app.label": "记住每一件重要的事情",
+  "app.nav.title": "保留",
+  "app.nav.logout": "登出",
+  "app.nav.searchplaceholder": "搜索",
+  "app.nav.initial": "{{initial}}",
+  "app.sidebar.notes": "笔记",
+  "app.sidebar.favourite": "收藏",
+  "app.sidebar.thrash": "垃圾桶",
+  "app.sidebar.tags": "标签",
+  "app.main.addnotes": "添加笔记",
+  "app.main.addnotes.btn": "提交",
+  "app.search.placeholder": "搜索"
 }

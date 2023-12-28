@@ -4,6 +4,7 @@ import Search from "../../base/search/Search";
 import logo from "../../assets/images/icon.png";
 import { getInitials } from "../../helpers/helper";
 import Dropdown from "../../base/dropdown/Dropdown";
+import { FormattedMessage } from "react-intl";
 
 const Navbar = ({
   userDetails,
@@ -19,7 +20,9 @@ const Navbar = ({
           <div className='nav__container1'>
             <div className='nav__logo'>
               <img src={logo} />
-              <span>keep</span>
+              <span>
+                <FormattedMessage id='app.nav.title' defaultMessage='Keep' />
+              </span>
             </div>
             <div className='nav__search'>
               <Search />
@@ -35,12 +38,22 @@ const Navbar = ({
             </div>
             <div className='nav__profile'>
               <span>
-                {getInitials(userDetails?.firstName, userDetails?.lastName)}
+                <FormattedMessage
+                  id='app.nav.initial'
+                  values={{
+                    initial: getInitials(
+                      userDetails?.firstName,
+                      userDetails?.lastName
+                    ),
+                  }}
+                />
               </span>
             </div>
 
             <div onClick={onLogout}>
-              <span className='nav__logout'>logout</span>
+              <span className='nav__logout'>
+                <FormattedMessage id='app.nav.logout' defaultMessage='logout' />
+              </span>
             </div>
           </div>
         </div>
