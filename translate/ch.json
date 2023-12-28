@@ -4,7 +4,7 @@
   "app.nav.title": "保留",
   "app.nav.logout": "登出",
   "app.nav.searchplaceholder": "搜索",
-  "app.nav.initial": "{{initial}}",
+  "app.nav.initial": "{initial}",
   "app.sidebar.notes": "笔记",
   "app.sidebar.favourite": "收藏",
   "app.sidebar.thrash": "垃圾桶",

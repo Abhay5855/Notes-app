@@ -4,7 +4,7 @@
   "app.nav.title": "Keep",
   "app.nav.logout": "Logout",
   "app.nav.searchplaceholder": "search",
-  "app.nav.initial": "{{initial}}",
+  "app.nav.initial": "{initial}",
   "app.sidebar.notes": "notes",
   "app.sidebar.favourite": "favourite",
   "app.sidebar.thrash": "thrash",
