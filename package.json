@@ -23,9 +23,7 @@
     "react-router-dom": "^6.18.0",
     "redux": "^5.0.0",
     "redux-persist": "^6.0.0",
-    "redux-toolkit": "^1.1.2",
-    "slate": "^0.101.1",
-    "slate-react": "^0.101.1"
+    "redux-toolkit": "^1.1.2"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
