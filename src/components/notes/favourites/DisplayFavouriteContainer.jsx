@@ -16,11 +16,11 @@ const DisplayFavouriteContainer = () => {
 
   useEffect(() => {
     setId(userId._id);
-  }, [id, userId]);
+  }, [userId]);
 
   useEffect(() => {
     setNotes(notesData.filter((item) => item?.liked === true));
-  }, [notesData, notes]);
+  }, [notesData]);
 
   const initData = (id) => {
     dispatch(fetchNotes(id));

@@ -19,12 +19,10 @@ const AddNotesContainer = () => {
     setUserDetails(loggedInUser);
   }, [loggedInUser]);
 
-  //showmodal
   const showModal = () => {
     setIsModalOpen(true);
   };
 
-  //cancel the modal
   const handleCancel = () => {
     setIsModalOpen(false);
   };

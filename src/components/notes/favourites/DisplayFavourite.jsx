@@ -43,8 +43,6 @@ const DisplayFavourite = ({ notes, isLoading }) => {
     };
   }, [notes]);
 
-  console.log(notes, "notes");
-
   return (
     <>
       <div className='display__notes__container'>

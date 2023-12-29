@@ -2,14 +2,9 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { setSearchQuery, fetchSearchNotes } from "../../redux/slice/notesSlice";
 import "./search.css";
-import { useDebounce } from "../../hooks/useDebounce";
 
 const Search = () => {
   const [searchText, setSearchText] = useState("");
-
-  console.log(searchText, "search text");
-
-  const debouncedValue = useDebounce(searchText);
 
   const dispatch = useDispatch();
 
@@ -19,11 +14,8 @@ const Search = () => {
     const query = e.target.value;
     dispatch(setSearchQuery(query !== "" ? query : ""));
 
-    // // Trigger search results fetch
     dispatch(fetchSearchNotes(query));
   };
-
-  console.log(debouncedValue, "debounced");
 
   return (
     <div className='search__container'>
