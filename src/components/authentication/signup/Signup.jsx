@@ -18,7 +18,7 @@ const Signup = ({
     <div className='signup__container'>
       <div className='signup__form'>
         <div className='signup__heading'>
-          <img src={logo} />
+          <img src={logo} loading='lazy' />
           <h1>WhizNotes</h1>
         </div>
         <form autoComplete='off' onSubmit={handleSubmit}>

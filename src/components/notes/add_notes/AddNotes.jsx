@@ -22,7 +22,7 @@ const AddNotes = ({
   return (
     <>
       <div className='addnotes__container'>
-        <img onClick={() => showModal()} src={plus} alt='plus' />
+        <img onClick={() => showModal()} src={plus} alt='...' loading='lazy' />
         <span>Add Notes</span>
       </div>
       {isModalOpen && (

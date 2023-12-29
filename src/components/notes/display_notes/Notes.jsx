@@ -88,7 +88,8 @@ const Notes = ({
                           <img
                             onClick={() => handleUnPinnedNotes(item?._id)}
                             src={pin}
-                            alt='pin'
+                            alt='...'
+                            loading='lazy'
                           />
                         ) : (
                           <span
@@ -117,8 +118,9 @@ const Notes = ({
                       </span>
                       {item?.liked ? (
                         <img
+                          loading='lazy'
                           src={heart}
-                          alt='heart'
+                          alt='...'
                           onClick={() => handleRemoveFromFavourites(item?._id)}
                         />
                       ) : (

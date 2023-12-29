@@ -20,7 +20,7 @@ const Login = ({
       <div className='login__container'>
         <div className='login__form'>
           <div className='login__heading'>
-            <img src={logo} />
+            <img src={logo} loading='lazy' alt='...' />
             <h1>WhizNotes</h1>
             <span>Remember everything important</span>
           </div>

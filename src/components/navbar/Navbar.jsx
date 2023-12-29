@@ -11,7 +11,7 @@ const Navbar = ({ userDetails, onLogout }) => {
         <div className='nav__container'>
           <div className='nav__container1'>
             <div className='nav__logo'>
-              <img src={logo} />
+              <img src={logo} loading='lazy' alt='...' />
               <span>keep</span>
             </div>
             <div className='nav__search'>
@@ -19,14 +19,6 @@ const Navbar = ({ userDetails, onLogout }) => {
             </div>
           </div>
           <div className='nav__container2'>
-            <div className='nav__settings'>
-              <span class='material-symbols-outlined'>settings</span>
-            </div>
-
-            <div className='nav__list'>
-              <span class='material-symbols-outlined'>grid_view</span>
-            </div>
-
             <div className='nav__profile'>
               <span>
                 {getInitials(userDetails?.firstName, userDetails?.lastName)}

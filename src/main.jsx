@@ -1,19 +1,26 @@
 import React from "react";
+import { Suspense } from "react";
+import { lazy } from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import ErrorPage from "./components/404/error-page.jsx";
 import LoginContainer from "./components/authentication/login/LoginContainer";
 import SignupContainer from "./components/authentication/signup/SignupContainer";
-import NotesContainer from "./components/notes/display_notes/NotesContainer";
+const NotesContainer = lazy(() =>
+  import("./components/notes/display_notes/NotesContainer")
+);
+const DisplayFavouriteContainer = lazy(() =>
+  import("./components/notes/favourites/DisplayFavouriteContainer.jsx")
+);
+
 import AppLoadingContainer from "./AppLoadingContainer";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistStore } from "redux-persist";
-import DisplayFavouriteContainer from "./components/notes/favourites/DisplayFavouriteContainer.jsx";
-
+import Loader from "./base/loader/Loader.jsx";
 let persistor = persistStore(store);
 
 // routings
@@ -38,19 +45,31 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/home",
-        element: <NotesContainer />,
+        element: (
+          <Suspense fallback={Loader}>
+            <NotesContainer />
+          </Suspense>
+        ),
+        errorElement: <ErrorPage />,
       },
       {
         path: "/thrash",
         element: <h1>Thrash</h1>,
+        errorElement: <ErrorPage />,
       },
       {
         path: "/favourite",
-        element: <DisplayFavouriteContainer />,
+        element: (
+          <Suspense fallback={Loader}>
+            <DisplayFavouriteContainer />
+          </Suspense>
+        ),
+        errorElement: <ErrorPage />,
       },
       {
         path: "/tags",
         element: <h1>Tags</h1>,
+        errorElement: <ErrorPage />,
       },
     ],
   },
