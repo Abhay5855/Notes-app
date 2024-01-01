@@ -7,6 +7,7 @@ import { logout } from "../../redux/slice/authSlice";
 import { logoutUser } from "../../api/api";
 import { useDispatch } from "react-redux";
 import { PURGE } from "redux-persist";
+import { toast } from "react-toastify";
 
 const NavbarContainer = () => {
   const loggedInUser = useSelector((state) => state.auth.userData);
@@ -21,10 +22,12 @@ const NavbarContainer = () => {
     try {
       await logoutUser();
       dispatch(logout);
+      toast.success("User logged out");
       dispatch({ type: PURGE, key: "persist-key", result: () => null });
       localStorage.removeItem("access_token");
       navigate("/");
     } catch (err) {
+      toast.error("Failed to logout");
       console.log(err);
     }
   };

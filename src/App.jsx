@@ -3,6 +3,8 @@ import { Outlet } from "react-router-dom";
 import "./App.css";
 import NavbarContainer from "./components/navbar/NavbarContainer";
 import SidebarContainer from "./components/sidebar/SidebarContainer";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
@@ -16,6 +18,7 @@ function App() {
       <div className='app__main__notes'>
         <Outlet />
       </div>
+      <ToastContainer />
     </div>
   );
 }

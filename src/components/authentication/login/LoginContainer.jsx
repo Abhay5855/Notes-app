@@ -1,4 +1,6 @@
 import React, { useState, useRef } from "react";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Login from "./Login";
 import { isEmpty } from "lodash";
 import { isvalidEmail } from "../../../helpers/helper";
@@ -51,7 +53,7 @@ const LoginContainer = () => {
 
       localStorage.setItem("access_token", JSON.stringify(token));
       dispatch(login(data));
-      addToast();
+      toast.success("Login successful");
       setLoading(false);
       navigate(state?.path || "/home");
     } catch (err) {

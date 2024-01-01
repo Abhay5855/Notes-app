@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Notes from "./Notes";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteSelected, fetchNotes } from "../../../redux/slice/notesSlice";
@@ -7,7 +7,7 @@ import {
   convertHtmlToPlainText,
   copyTextToClipboard,
 } from "../../../helpers/helper";
-import ToastPortal from "../../../base/toast/ToastPortal";
+import { toast } from "react-toastify";
 
 const NotesContainer = () => {
   const userId = useSelector((state) => state.auth.userData);
@@ -24,15 +24,6 @@ const NotesContainer = () => {
   const [notes, setNotes] = useState([]);
   const dispatch = useDispatch();
   const [openPalette, setOpenPalette] = useState({});
-
-  const toastRef = useRef();
-
-  const addToast = (mode, message) => {
-    toastRef.current.addMessage({
-      mode,
-      message,
-    });
-  };
 
   useEffect(() => {
     setId(userId._id);
@@ -61,10 +52,10 @@ const NotesContainer = () => {
     try {
       await PinNotes(noteId);
       initData(id);
-      addToast("success", "Pinned note");
+      toast.success("Pinned note");
     } catch (err) {
       console.log(err);
-      addToast("success", "Failed to pin the note");
+      toast.error("Failed to pin the note");
     }
   };
 
@@ -73,10 +64,10 @@ const NotesContainer = () => {
     try {
       await UnPinNotes(noteId);
       initData(id);
-      addToast("success", "Unpinned note");
+      toast.success("Unpinned note");
     } catch (err) {
       console.log(err);
-      addToast("error", "Failed to unpin the note");
+      toast.error("Failed to unpin the note");
     }
   };
 
@@ -84,11 +75,11 @@ const NotesContainer = () => {
   const handleDelete = (noteId) => {
     try {
       dispatch(deleteSelected({ userId: id, noteId }));
-      addToast("success", "Notes deleted successfully");
+      toast.success("Notes deleted successfully");
       initData(id);
     } catch (err) {
       console.log(err);
-      addToast("error", "Unable to delete the notes");
+      toast.error("Failed to delete the notes");
     }
   };
 
@@ -98,9 +89,9 @@ const NotesContainer = () => {
       const convertedText = convertHtmlToPlainText(content);
       const textToCopy = `${title}\n${convertedText}`;
       copyTextToClipboard(textToCopy);
-      addToast("success", "Copied to clipboard");
+      toast.success("Copied to clipboard");
     } catch (err) {
-      addToast("error", "Failed to copy");
+      toast.error("Failed to copy");
     }
   };
 
@@ -116,20 +107,20 @@ const NotesContainer = () => {
     try {
       await addToFavourite(noteId);
       initData(id);
-      addToast("success", "Added to favourites");
+      toast.success("Added to favourites");
     } catch (err) {
       console.log(err);
-      addToast("success", "Failed to add it to favourite");
+      toast.error("Failed to add it to favourite");
     }
   };
   const handleRemoveFromFavourites = async (noteId) => {
     try {
       await addToFavourite(noteId);
       initData(id);
-      addToast("success", "Removed from favourites");
+      toast.success("Removed from favourites");
     } catch (err) {
       console.log(err);
-      addToast("success", "Failed to remove from favourite");
+      toast.error("Failed to remove from favourite");
     }
   };
 
@@ -150,7 +141,6 @@ const NotesContainer = () => {
         handleAddToFavourites={handleAddToFavourites}
         handleRemoveFromFavourites={handleRemoveFromFavourites}
       />
-      <ToastPortal ref={toastRef} />
     </>
   );
 };

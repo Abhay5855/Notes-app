@@ -4,6 +4,7 @@ import { isEmpty } from "lodash";
 import { isValidPassword, isvalidEmail } from "../../../helpers/helper";
 import { Register } from "../../../api/api";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const SignupContainer = () => {
   const [formData, setFormData] = useState({
@@ -35,6 +36,7 @@ const SignupContainer = () => {
 
     try {
       await Register(formData);
+      toast.success("User registered successfully");
       setLoading(false);
       navigate("/");
     } catch (err) {

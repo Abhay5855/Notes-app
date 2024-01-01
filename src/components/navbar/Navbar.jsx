@@ -3,6 +3,7 @@ import "./navbar.css";
 import Search from "../../base/search/Search";
 import logo from "../../assets/images/icon.png";
 import { getInitials } from "../../helpers/helper";
+import { toast } from "react-toastify";
 
 const Navbar = ({ userDetails, onLogout }) => {
   return (
