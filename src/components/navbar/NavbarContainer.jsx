@@ -18,6 +18,10 @@ const NavbarContainer = () => {
 
   const navigate = useNavigate();
 
+  const handleDashboard = () => {
+    navigate("/home");
+  };
+
   const handleLogout = async () => {
     try {
       await logoutUser();
@@ -36,7 +40,13 @@ const NavbarContainer = () => {
     setUserDetails(loggedInUser);
   }, [loggedInUser]);
 
-  return <Navbar userDetails={userDetails} onLogout={handleLogout} />;
+  return (
+    <Navbar
+      userDetails={userDetails}
+      onLogout={handleLogout}
+      handleDashboard={handleDashboard}
+    />
+  );
 };
 
 export default NavbarContainer;

@@ -3,15 +3,14 @@ import "./navbar.css";
 import Search from "../../base/search/Search";
 import logo from "../../assets/images/icon.png";
 import { getInitials } from "../../helpers/helper";
-import { toast } from "react-toastify";
 
-const Navbar = ({ userDetails, onLogout }) => {
+const Navbar = ({ userDetails, onLogout, handleDashboard }) => {
   return (
     <>
       <nav>
         <div className='nav__container'>
           <div className='nav__container1'>
-            <div className='nav__logo'>
+            <div className='nav__logo' onClick={handleDashboard}>
               <img src={logo} loading='lazy' alt='...' />
               <span>keep</span>
             </div>
