@@ -21,6 +21,9 @@ import ProtectedRoute from "./routes/ProtectedRoute";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistStore } from "redux-persist";
 import Loader from "./base/loader/Loader.jsx";
+import MenuContainer from "./components/draw_notes/menu/MenuContainer.jsx";
+import BoardContainer from "./components/draw_notes/board/BoardContainer.jsx";
+import Sketch from "./pages/Sketch.jsx";
 let persistor = persistStore(store);
 
 // routings
@@ -33,6 +36,11 @@ const router = createBrowserRouter([
   {
     path: "/register",
     element: <SignupContainer />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/sketch",
+    element: <Sketch />,
     errorElement: <ErrorPage />,
   },
   {
