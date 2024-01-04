@@ -1,19 +1,7 @@
-import React, { useRef, useEffect } from "react";
+import React from "react";
 
-const Board = () => {
-  const canvasRef = useRef();
-
-  useEffect(() => {
-    if (!canvasRef.current) return;
-
-    const canvas = canvasRef.current;
-
-    const context = canvas.getContext("2d");
-
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  }, []);
-  return <canvas ref={canvasRef} id='canvas'></canvas>;
+const Board = ({ canvasRef }) => {
+  return <canvas ref={canvasRef} id="canvas"></canvas>;
 };
 
 export default Board;

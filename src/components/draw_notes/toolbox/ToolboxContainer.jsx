@@ -9,20 +9,21 @@ import { MENU_ITEMS } from "../../../../utils/utility";
 
 const ToolboxContainer = () => {
   const dispatch = useDispatch();
-  const selectedItem = useSelector((state) => state.menu.activeMenuItem);
-  const { size } = useSelector((state) => state.toolbox[selectedItem]);
+  const activeMenuItem = useSelector((state) => state.menu.activeMenuItem);
+  const { size, color } = useSelector((state) => state.toolbox[activeMenuItem]);
 
   const handleBrushSize = (e) => {
-    dispatch(changeBrushSize({ item: selectedItem, size: e.target.value }));
+    dispatch(changeBrushSize({ item: activeMenuItem, size: e.target.value }));
   };
 
   const handleChangeColor = (updatedColor) => {
-    dispatch(changeColor({ item: selectedItem, color: updatedColor }));
+    dispatch(changeColor({ item: activeMenuItem, color: updatedColor }));
   };
 
-  const showStrokeOptions = selectedItem === MENU_ITEMS.PENCIL;
+  const showStrokeOptions = activeMenuItem === MENU_ITEMS.PENCIL;
   const showBrushOptions =
-    selectedItem === MENU_ITEMS.ERASER || selectedItem === MENU_ITEMS.PENCIL;
+    activeMenuItem === MENU_ITEMS.ERASER ||
+    activeMenuItem === MENU_ITEMS.PENCIL;
 
   return (
     <div>
