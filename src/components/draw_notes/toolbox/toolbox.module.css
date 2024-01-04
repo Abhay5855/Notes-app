@@ -20,4 +20,7 @@
 .toolbox__colors > div {
   padding: 15px;
   cursor: pointer;
+  border: 0.5px solid #000;
+
+  
 }
