@@ -41,6 +41,7 @@ const MENU_ITEMS = {
   UNDO: "UNDO",
   REDO: "REDO",
   DOWNLOAD: "DOWNLOAD",
+  RESET: "RESET",
 };
 
 export { COLORS, MENU_ITEMS };

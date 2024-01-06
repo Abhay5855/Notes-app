@@ -4,7 +4,7 @@ import styles from "./menu.module.css";
 
 import { MENU_ITEMS } from "../../../../utils/utility";
 
-const Menu = ({ handleItemClick }) => {
+const Menu = ({ handleItemClick, handleActionItemClick }) => {
   return (
     <div className={styles.menu__container}>
       <div
@@ -21,13 +21,13 @@ const Menu = ({ handleItemClick }) => {
       </div>
       <div
         className={styles.menu__items}
-        onClick={() => handleItemClick(MENU_ITEMS.UNDO)}
+        onClick={() => handleActionItemClick(MENU_ITEMS.UNDO)}
       >
         <span class="material-symbols-outlined">undo</span>
       </div>
       <div
         className={styles.menu__items}
-        onClick={() => handleItemClick(MENU_ITEMS.REDO)}
+        onClick={() => handleActionItemClick(MENU_ITEMS.REDO)}
       >
         <span class="material-symbols-outlined">redo</span>
       </div>

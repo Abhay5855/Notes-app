@@ -13,6 +13,7 @@ const initialState = {
   [MENU_ITEMS.UNDO]: {},
   [MENU_ITEMS.REDO]: {},
   [MENU_ITEMS.DOWNLOAD]: {},
+  [MENU_ITEMS.RESET]: {},
 };
 
 export const toolboxSlice = createSlice({
