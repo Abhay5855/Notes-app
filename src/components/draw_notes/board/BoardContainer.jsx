@@ -38,6 +38,12 @@ const BoardContainer = () => {
       if (imageData) {
         context.putImageData(imageData, 0, 0);
       }
+    } else if (actionMenuItem === MENU_ITEMS.DOWNLOAD) {
+      const URL = canvas.toDataURL();
+      const anchor = document.createElement("a");
+      anchor.href = URL;
+      anchor.download = "sketch.jpg";
+      anchor.click();
     }
     dispatch(actionItemClick(null));
   }, [actionMenuItem, dispatch]);
@@ -81,6 +87,7 @@ const BoardContainer = () => {
       const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
       //push the context into the array
       historyDraw.current.push(imageData);
+
       //we want the last pointer
       historyPointer.current = historyDraw.current.length - 1;
     };

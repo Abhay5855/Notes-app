@@ -21,6 +21,13 @@ const Menu = ({ handleItemClick, handleActionItemClick }) => {
       </div>
       <div
         className={styles.menu__items}
+        onClick={() => handleActionItemClick(MENU_ITEMS.DOWNLOAD)}
+      >
+        <span class="material-symbols-outlined">download</span>
+      </div>
+
+      <div
+        className={styles.menu__items}
         onClick={() => handleActionItemClick(MENU_ITEMS.UNDO)}
       >
         <span class="material-symbols-outlined">undo</span>
