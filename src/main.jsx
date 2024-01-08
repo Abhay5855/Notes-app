@@ -36,15 +36,7 @@ const router = createBrowserRouter([
     element: <SignupContainer />,
     errorElement: <ErrorPage />,
   },
-  {
-    path: "/sketch",
-    element: (
-      <ProtectedRoute>
-        <Sketch />
-      </ProtectedRoute>
-    ),
-    errorElement: <ErrorPage />,
-  },
+
   {
     element: (
       <ProtectedRoute>
@@ -63,8 +55,8 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage />,
       },
       {
-        path: "/thrash",
-        element: <h1>Thrash</h1>,
+        path: "/sketch",
+        element: <Sketch />,
         errorElement: <ErrorPage />,
       },
       {
