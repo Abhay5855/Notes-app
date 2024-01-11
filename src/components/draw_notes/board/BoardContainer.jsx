@@ -3,6 +3,7 @@ import Board from "./Board";
 import { useSelector, useDispatch } from "react-redux";
 import { MENU_ITEMS } from "../../../../utils/utility";
 import { actionItemClick } from "../../../redux/slice/menuSlice";
+import { uploadNote } from "../../../api/api";
 const BoardContainer = () => {
   const canvasRef = useRef(null);
   const shouldDraw = useRef(false);
@@ -71,7 +72,7 @@ const BoardContainer = () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    const handleMouseDown = (e) => {
+    const handleMouseDown = async (e) => {
       shouldDraw.current = true;
       context.beginPath();
       context.moveTo(e.clientX, e.clientY);
@@ -81,7 +82,7 @@ const BoardContainer = () => {
       context.lineTo(e.clientX, e.clientY);
       context.stroke();
     };
-    const handleMouseUp = (e) => {
+    const handleMouseUp = async (e) => {
       shouldDraw.current = false;
       //Capture the canvas height and width
       const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
@@ -90,6 +91,12 @@ const BoardContainer = () => {
 
       //we want the last pointer
       historyPointer.current = historyDraw.current.length - 1;
+
+      const body = {
+        base64Image: canvas.toDataURL(),
+      };
+
+      await uploadNote("658aeecb475de8f3e0e8fb83", body);
     };
 
     canvas.addEventListener("mousedown", handleMouseDown);

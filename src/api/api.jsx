@@ -51,3 +51,7 @@ export const searchNotes = async (query) => {
     "GET"
   );
 };
+
+export const uploadNote = async (id, data) => {
+  return await makeAPIRequest(`${BASE_URL}/notes/${id}/upload`, "POST", data);
+};
