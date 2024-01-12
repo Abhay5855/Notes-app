@@ -14,5 +14,9 @@ export default defineConfig({
     fs: {
       allowSymlinks: true,
     },
+
+    watch: {
+      followSymlinks: false,
+    },
   },
 });
