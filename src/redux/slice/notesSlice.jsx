@@ -28,8 +28,8 @@ export const fetchSearchNotes = createAsyncThunk(
 
 export const fetchNoteImage = createAsyncThunk(
   "note/fetchNoteImage",
-  async (noteId) => {
-    const response = await fetchImage(noteId);
+  async (userId) => {
+    const response = await fetchImage(userId);
     return { noteId, image: response.base64Image };
   }
 );

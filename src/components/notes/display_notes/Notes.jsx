@@ -7,7 +7,6 @@ import Loader from "../../../base/loader/Loader";
 import ColorPalette from "../../../base/color_palette/ColorPalette";
 import heart from "../../../assets/images/heart.svg";
 import { Popover } from "antd";
-import { useSelector } from "react-redux";
 
 const Notes = ({
   notes,
@@ -23,11 +22,9 @@ const Notes = ({
   setOpenPalette,
   handleAddToFavourites,
   handleRemoveFromFavourites,
-  handleDrawSketch,
 }) => {
   const mainContainerRef = useRef(null);
   const noteElRefs = useRef([]);
-  const noteImages = useSelector((state) => state.note.noteImages);
 
   useEffect(() => {
     const sizes = [
@@ -92,16 +89,6 @@ const Notes = ({
                   style={{ backgroundColor: `${item?.color}` }}
                   className="display__notes"
                 >
-                  {item?.imageData && (
-                    <div className="notes__image">
-                      <img
-                        src={noteImages[item?._id]}
-                        alt="..."
-                        loading="lazy"
-                      />
-                    </div>
-                  )}
-
                   <div
                     className="notes__content__display"
                     key={item?.id}
@@ -170,17 +157,6 @@ const Notes = ({
                       >
                         content_copy
                       </span>
-                      <Popover
-                        trigger="click"
-                        placement="topLeft"
-                        content={() => content(item?._id)}
-                      >
-                        <>
-                          <span class="material-symbols-outlined">
-                            more_vert
-                          </span>
-                        </>
-                      </Popover>
                     </div>
                   </div>
 

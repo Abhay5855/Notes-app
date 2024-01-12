@@ -26,10 +26,6 @@ const NotesContainer = () => {
 
   const searchQuery = useSelector((state) => state.note.searchQuery);
 
-  const selectedNoteId = useSelector((state) => state.note.selectedId);
-
-  const noteImages = useSelector((state) => state.note.noteImages);
-
   const { isLoading } = useSelector((state) => state.note);
 
   const navigate = useNavigate();
@@ -38,7 +34,6 @@ const NotesContainer = () => {
   const [notes, setNotes] = useState([]);
   const dispatch = useDispatch();
   const [openPalette, setOpenPalette] = useState({});
-  const [image, setImage] = useState("");
 
   useEffect(() => {
     setId(userId._id);
@@ -133,50 +128,6 @@ const NotesContainer = () => {
     }
   };
 
-  const handleDrawSketch = (id) => {
-    dispatch(setSelectedId(id));
-    navigate("/sketch");
-  };
-
-  console.log(selectedNoteId);
-
-  useEffect(() => {
-    const fetchImages = async (id) => {
-      try {
-        const response = dispatch(fetchNoteImage(id));
-
-        if (response && response.base64Image) {
-          return response.base64Image;
-        } else {
-          return null; // or handle the case when the image is not available
-        }
-      } catch (error) {
-        console.error("Error fetching image:", error);
-        return null; // or handle the error as needed
-      }
-    };
-
-    const updateNoteImage = async () => {
-      if (selectedNoteId) {
-        try {
-          const imageData = fetchImages(selectedNoteId);
-
-          if (imageData !== null) {
-            dispatch(
-              setNoteImage({ noteId: selectedNoteId, image: imageData })
-            );
-          } else {
-            // Handle the case when the image is not available
-            console.warn("Image not available for noteId:", selectedNoteId);
-          }
-        } catch (error) {
-          console.error("Error updating note image:", error);
-        }
-      }
-    };
-
-    updateNoteImage(); // Call the function to update note image
-  }, [selectedNoteId, dispatch]);
   return (
     <>
       <Notes
@@ -193,9 +144,6 @@ const NotesContainer = () => {
         setOpenPalette={setOpenPalette}
         handleAddToFavourites={handleAddToFavourites}
         handleRemoveFromFavourites={handleRemoveFromFavourites}
-        handleDrawSketch={handleDrawSketch}
-        selectedNoteId={selectedNoteId}
-        image={noteImages[selectedNoteId]}
       />
     </>
   );
