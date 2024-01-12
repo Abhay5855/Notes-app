@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import "./colorPalette.css";
 import { changeColor } from "../../api/api";
-import { colors } from "../../../utils/utility";
+import { colors } from "../../utils/utility";
 
 const ColorPalette = ({
   noteId,
@@ -28,13 +28,13 @@ const ColorPalette = ({
 
   return (
     <>
-      <div className='color__picker__container' ref={colorRef}>
-        <div className='color__picker'>
+      <div className="color__picker__container" ref={colorRef}>
+        <div className="color__picker">
           {colors?.map((item) => (
             <>
               <div
                 key={item?.id}
-                className='color__pick'
+                className="color__pick"
                 style={{
                   backgroundColor: `${item?.color}`,
                   cursor:
