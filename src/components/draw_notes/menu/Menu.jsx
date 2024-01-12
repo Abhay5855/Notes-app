@@ -2,7 +2,7 @@ import React from "react";
 
 import styles from "./menu.module.css";
 
-import { MENU_ITEMS } from "../../../../utils/utility";
+import { MENU_ITEMS } from "../../../utils/utility";
 
 const Menu = ({ handleItemClick, handleActionItemClick }) => {
   return (

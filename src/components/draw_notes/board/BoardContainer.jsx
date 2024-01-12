@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useLayoutEffect } from "react";
 import Board from "./Board";
 import { useSelector, useDispatch } from "react-redux";
-import { MENU_ITEMS } from "../../../../utils/utility";
+import { MENU_ITEMS } from "../../../utils/utility";
 import { actionItemClick } from "../../../redux/slice/menuSlice";
 import { uploadNote } from "../../../api/api";
 const BoardContainer = () => {

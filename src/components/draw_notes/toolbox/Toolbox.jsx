@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./toolbox.module.css";
-import { COLORS } from "../../../../utils/utility";
+import { COLORS } from "../../../utils/utility";
 const Toolbox = ({
   showBrushOptions,
   showStrokeOptions,

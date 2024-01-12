@@ -5,7 +5,7 @@ import {
   changeColor,
   changeBrushSize,
 } from "../../../redux/slice/toolboxSlice";
-import { MENU_ITEMS } from "../../../../utils/utility";
+import { MENU_ITEMS } from "../../../utils/utility";
 
 const ToolboxContainer = () => {
   const dispatch = useDispatch();
