@@ -36,15 +36,15 @@ const router = createBrowserRouter([
     element: <SignupContainer />,
     errorElement: <ErrorPage />,
   },
-  // {
-  //   path: "/sketch",
-  //   element: (
-  //     <ProtectedRoute>
-  //       <Sketch />
-  //     </ProtectedRoute>
-  //   ),
-  //   errorElement: <ErrorPage />,
-  // },
+  {
+    path: "/sketch",
+    element: (
+      <ProtectedRoute>
+        <Sketch />
+      </ProtectedRoute>
+    ),
+    errorElement: <ErrorPage />,
+  },
 
   {
     element: (

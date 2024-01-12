@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { getNotes, deleteNotes, searchNotes } from "../../api/api";
+import { getNotes, deleteNotes, searchNotes, fetchImage } from "../../api/api";
 
 export const fetchNotes = createAsyncThunk(
   "note/fetchNotes",
@@ -26,11 +26,21 @@ export const fetchSearchNotes = createAsyncThunk(
   }
 );
 
+export const fetchNoteImage = createAsyncThunk(
+  "note/fetchNoteImage",
+  async (noteId) => {
+    const response = await fetchImage(noteId);
+    return { noteId, image: response.base64Image };
+  }
+);
+
 const initialState = {
   isLoading: false,
   notesData: null,
   searchQuery: "",
   searchResults: null,
+  selectedId: null,
+  noteImages: {},
 };
 
 export const noteSlice = createSlice({
@@ -40,6 +50,14 @@ export const noteSlice = createSlice({
   reducers: {
     setSearchQuery: (state, action) => {
       state.searchQuery = action.payload;
+    },
+
+    setSelectedId: (state, action) => {
+      state.selectedId = action.payload;
+    },
+    setNoteImage: (state, action) => {
+      const { noteId, image } = action.payload;
+      state.noteImages[noteId] = image;
     },
   },
   extraReducers: (builder) => {
@@ -83,9 +101,25 @@ export const noteSlice = createSlice({
     builder.addCase(fetchSearchNotes.rejected, (state) => {
       state.isLoading = false;
     });
+
+    builder.addCase(fetchNoteImage.fulfilled, (state, action) => {
+      state.isLoading = false;
+      console.log("Current state:", state);
+      console.log("Action payload:", action.payload);
+      const { noteId, image } = action.payload;
+      state.noteImages = { ...state.noteImages, [noteId]: image };
+    });
+
+    builder.addCase(fetchNoteImage.rejected, (state) => {
+      state.isLoading = false;
+    });
+    builder.addCase(fetchNoteImage.pending, (state) => {
+      state.isLoading = true;
+    });
   },
 });
 
-export const { setSearchQuery } = noteSlice.actions;
+export const { setSearchQuery, setSelectedId, setNoteImage } =
+  noteSlice.actions;
 
 export const noteSliceReducer = noteSlice.reducer;

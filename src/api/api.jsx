@@ -55,3 +55,7 @@ export const searchNotes = async (query) => {
 export const uploadNote = async (id, data) => {
   return await makeAPIRequest(`${BASE_URL}/notes/${id}/upload`, "POST", data);
 };
+
+export const fetchImage = async (id) => {
+  return await makeAPIRequest(`${BASE_URL}/notes/${id}/getImage`, "GET");
+};

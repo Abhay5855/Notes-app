@@ -4,7 +4,6 @@
 
 .display__notes {
   border-radius: 8px;
-  padding: 0.8em 0.6em 0.8em 0.6em;
   width: 250px;
   border: 1px solid #5f6368;
   cursor: pointer;
@@ -48,4 +47,21 @@
   align-items: center;
   justify-content: space-between;
   margin-top: 12px;
+}
+
+.popover__content {
+  color: #000;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.notes__image {
+  background-color: #fff;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+}
+
+.notes__content__display {
+  padding: 0.8em 0.6em 0.8em 0.6em;
 }

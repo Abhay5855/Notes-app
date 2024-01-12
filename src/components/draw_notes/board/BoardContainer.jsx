@@ -13,6 +13,7 @@ const BoardContainer = () => {
 
   const { activeMenuItem, actionMenuItem } = useSelector((state) => state.menu);
   const { color, size } = useSelector((state) => state.toolbox[activeMenuItem]);
+  const selectedNoteId = useSelector((state) => state.note.selectedId);
 
   useEffect(() => {
     if (!canvasRef.current) return;
@@ -96,7 +97,7 @@ const BoardContainer = () => {
         base64Image: canvas.toDataURL(),
       };
 
-      await uploadNote("658aeecb475de8f3e0e8fb83", body);
+      await uploadNote(selectedNoteId, body);
     };
 
     canvas.addEventListener("mousedown", handleMouseDown);
