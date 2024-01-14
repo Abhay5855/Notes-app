@@ -6,7 +6,6 @@ import pin from "../../../assets/images/pin.svg";
 import Loader from "../../../base/loader/Loader";
 import ColorPalette from "../../../base/color_palette/ColorPalette";
 import heart from "../../../assets/images/heart.svg";
-import { Popover } from "antd";
 
 const Notes = ({
   notes,
@@ -50,13 +49,10 @@ const Notes = ({
       instance.pack();
     };
 
-    // Initial build
     buildMasonry();
 
-    // Event listener for window resize
     window.addEventListener("resize", buildMasonry);
 
-    // Cleanup function to remove event listener on component unmount
     return () => {
       window.removeEventListener("resize", buildMasonry);
     };
