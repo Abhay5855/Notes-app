@@ -6,6 +6,7 @@ import pin from "../../../assets/images/pin.svg";
 import Loader from "../../../base/loader/Loader";
 import ColorPalette from "../../../base/color_palette/ColorPalette";
 import heart from "../../../assets/images/heart.svg";
+import { Popover } from "antd";
 
 const Notes = ({
   notes,
@@ -21,6 +22,7 @@ const Notes = ({
   setOpenPalette,
   handleAddToFavourites,
   handleRemoveFromFavourites,
+  handleDrawSketch,
 }) => {
   const mainContainerRef = useRef(null);
   const noteElRefs = useRef([]);
@@ -153,6 +155,17 @@ const Notes = ({
                       >
                         content_copy
                       </span>
+                      <Popover
+                        trigger="click"
+                        placement="topLeft"
+                        content={() => content(item?._id)}
+                      >
+                        <>
+                          <span class="material-symbols-outlined">
+                            more_vert
+                          </span>
+                        </>
+                      </Popover>
                     </div>
                   </div>
 

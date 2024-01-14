@@ -128,6 +128,10 @@ const NotesContainer = () => {
     }
   };
 
+  const handleDrawSketch = () => {
+    navigate("/sketch");
+  };
+
   return (
     <>
       <Notes
@@ -144,6 +148,7 @@ const NotesContainer = () => {
         setOpenPalette={setOpenPalette}
         handleAddToFavourites={handleAddToFavourites}
         handleRemoveFromFavourites={handleRemoveFromFavourites}
+        handleDrawSketch={handleDrawSketch}
       />
     </>
   );
