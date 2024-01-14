@@ -31,7 +31,7 @@ const Notes = ({
     const sizes = [
       { columns: 1, gutter: 10 },
       { mq: "768px", columns: 2, gutter: 15 },
-      { mq: "1024px", columns: 4, gutter: 10 },
+      { mq: "1024px", columns: 3, gutter: 30 },
       { mq: "1440px", columns: 4, gutter: 40 },
       { mq: "1500px", columns: 5, gutter: 10 },
       { mq: "1600px", columns: 5, gutter: 30 },
