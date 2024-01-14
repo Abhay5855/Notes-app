@@ -69,7 +69,7 @@ const SignupContainer = () => {
           ? "Password should not be empty"
           : isValidPassword(formData.password)
           ? ""
-          : "Your password must contain one uppercase letter, one lowercase letter and one number, and must be at least 8 characters long.";
+          : "Password must contain at least one uppercase letter, one number, and one special character";
 
       case "lastName":
         return isEmpty(formData.lastName)
