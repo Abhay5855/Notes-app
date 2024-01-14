@@ -22,7 +22,6 @@ const SignupContainer = () => {
   // handleChange
   const handleChange = (e) => {
     const { name, value } = e.target;
-    // Using the spread operator to ensure immutability
     setFormData((prevData) => ({ ...prevData, [name]: value }));
 
     setTouched({ ...touched, [name]: true });
@@ -37,8 +36,8 @@ const SignupContainer = () => {
     try {
       await Register(formData);
       setLoading(false);
-      toast.success("User registered successfully");
       navigate("/");
+      toast.success("User registered successfully");
     } catch (err) {
       toast.error("Failed to signup please try again");
       setLoading(false);

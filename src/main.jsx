@@ -7,6 +7,8 @@ import "./index.css";
 import ErrorPage from "./components/404/error-page.jsx";
 import LoginContainer from "./components/authentication/login/LoginContainer";
 import SignupContainer from "./components/authentication/signup/SignupContainer";
+import { ToastContainer } from "react-toastify";
+
 const NotesContainer = lazy(() =>
   import("./components/notes/display_notes/NotesContainer")
 );
@@ -24,7 +26,6 @@ import Loader from "./base/loader/Loader.jsx";
 import Sketch from "./pages/Sketch.jsx";
 let persistor = persistStore(store);
 
-// routings
 const router = createBrowserRouter([
   {
     path: "/",
@@ -72,11 +73,6 @@ const router = createBrowserRouter([
         ),
         errorElement: <ErrorPage />,
       },
-      {
-        path: "/tags",
-        element: <h1>Tags</h1>,
-        errorElement: <ErrorPage />,
-      },
     ],
   },
 ]);
@@ -88,5 +84,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <RouterProvider router={router} />
       </PersistGate>
     </Provider>
+    <ToastContainer />
   </React.StrictMode>
 );
