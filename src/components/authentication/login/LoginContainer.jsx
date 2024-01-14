@@ -8,7 +8,6 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { Signin } from "../../../api/api";
 import { login } from "../../../redux/slice/authSlice";
 import { useDispatch } from "react-redux";
-import ToastPortal from "../../../base/toast/ToastPortal";
 
 const LoginContainer = () => {
   const [formData, setFormData] = useState({
@@ -22,15 +21,6 @@ const LoginContainer = () => {
   const dispatch = useDispatch();
   const { state } = useLocation();
   const [loading, setLoading] = useState(false);
-
-  const toastRef = useRef();
-
-  const addToast = () => {
-    toastRef.current.addMessage({
-      mode: "success",
-      message: "Login Successful",
-    });
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -103,7 +93,6 @@ const LoginContainer = () => {
         validated={validated}
         isLoading={loading}
       />
-      <ToastPortal ref={toastRef} />
     </div>
   );
 };

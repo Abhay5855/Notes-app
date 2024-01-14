@@ -1,0 +1,20 @@
+{
+  "app.notes.description": "Remember everything important",
+  "app.notes.email": "Email",
+  "app.notes.password": "Password",
+  "app.login.button": "login",
+  "app.login.question": "don't have an account",
+  "app.login.link": "create account",
+  "app.firstname": "first name",
+  "app.lastname": "last name",
+  "app.signup.question": "already have a account",
+  "app.signup.link": "login",
+  "app.sidebar.notes": "notes",
+  "app.sidebar.favourite": "favourite",
+  "app.nav.search": "search",
+  "app.nav.logout": "logout",
+  "app.addnotes": "add notes",
+  "app.modal.header": "add note",
+  "app.modal.title": "enter title",
+  "app.modal.button": "submit"
+}

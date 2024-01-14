@@ -36,10 +36,11 @@ const SignupContainer = () => {
 
     try {
       await Register(formData);
-      toast.success("User registered successfully");
       setLoading(false);
+      toast.success("User registered successfully");
       navigate("/");
     } catch (err) {
+      toast.error("Failed to signup please try again");
       setLoading(false);
 
       setFormData({
@@ -49,8 +50,6 @@ const SignupContainer = () => {
         lastName: "",
       });
     }
-
-    // clear the input feilds
   };
 
   const isInvalidMessage = (name) => {
