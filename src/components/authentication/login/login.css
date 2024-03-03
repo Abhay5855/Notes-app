@@ -63,6 +63,10 @@
   font-weight: 400;
 }
 
+.test-section {
+  font-size: 0.85rem;
+}
+
 /* media queries */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
   .login__form {

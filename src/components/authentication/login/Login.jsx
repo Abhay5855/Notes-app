@@ -17,32 +17,32 @@ const Login = ({
 }) => {
   return (
     <>
-      <div className='login__container'>
-        <div className='login__form'>
-          <div className='login__heading'>
-            <img src={logo} loading='lazy' alt='...' />
+      <div className="login__container">
+        <div className="login__form">
+          <div className="login__heading">
+            <img src={logo} loading="lazy" alt="..." />
             <h1>WhizNotes</h1>
             <span>Remember everything important</span>
           </div>
 
-          <form autoComplete='off' onSubmit={onSubmit}>
+          <form autoComplete="off" onSubmit={onSubmit}>
             <Input
-              type='email'
-              placeholder='Email'
+              type="email"
+              placeholder="Email"
               value={formData.email}
               required={true}
-              name='email'
+              name="email"
               onChange={onChange}
               feedbackMessage={
                 touched.email || validated ? isInvalidMessage("email") : ""
               }
             />
             <Input
-              type='password'
-              placeholder='Password'
+              type="password"
+              placeholder="Password"
               value={formData.password}
               required={true}
-              name='password'
+              name="password"
               onChange={onChange}
               feedbackMessage={
                 touched.password || validated
@@ -50,18 +50,23 @@ const Login = ({
                   : ""
               }
             />
+
+            <div className="test-section">
+              <div>Test email : testuser@gmail.com</div>
+              <div>Test Password : Testinguser123@</div>
+            </div>
             <Button
-              type='submit'
-              variant='submit'
-              label='Login'
+              type="submit"
+              variant="submit"
+              label="Login"
               isDisabled={isDisabled}
               isLoading={isLoading}
             />
           </form>
 
-          <div className='login__ending'>
+          <div className="login__ending">
             <p>Don't have an account?</p>
-            <NavLink to='/register'>create account</NavLink>
+            <NavLink to="/register">create account</NavLink>
           </div>
         </div>
       </div>
